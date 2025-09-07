@@ -6,7 +6,5 @@
   <img src="https://img.shields.io/github/issues/ChinmayKaitade/N8N-AI-Agents-Masterclass?style=for-the-badge&color=orange" />
 </p>
 
-<p align="center">
 Welcome to the **n8n + AI Agents Learning Repository** 🚀  
 Here we explore how to build, automate, and scale AI-powered workflows using **[n8n](https://n8n.io/)**.
-</p>
