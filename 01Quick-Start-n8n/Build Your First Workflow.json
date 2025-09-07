@@ -1,0 +1,162 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Request an Installation",
+        "formDescription": "Fill out this form to request an installation. We'll reach out via email to finalize your appointment.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Email Address",
+              "fieldType": "email",
+              "placeholder": "Enter Email Address",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Preferred Installation Date",
+              "fieldType": "date"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.3,
+      "position": [
+        0,
+        0
+      ],
+      "id": "6cc8c240-9a92-497e-b96e-33ac769dd4ce",
+      "name": "On form submission",
+      "webhookId": "b9a5afcb-c4d5-4067-94cd-aa471df3296b"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "e5dd1dad-4b83-4805-9bf1-7740cbcc9c4a",
+              "leftValue": "={{ $json['Preferred Installation Date'].toDateTime() }}",
+              "rightValue": "={{ $now.plus(7, 'days') }}",
+              "operator": {
+                "type": "dateTime",
+                "operation": "beforeOrEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "aa7d3853-5878-4753-a7ab-2462756b5678",
+      "name": "is within 7 days?"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        416,
+        96
+      ],
+      "id": "b617db34-9ce5-46f1-be10-fca5e0dd8776",
+      "name": "todo"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C09EBD8A3TK",
+          "mode": "list",
+          "cachedResultName": "social"
+        },
+        "text": "=New Install Request (within 7 days)\nContact Email:{{ $json['Email Address'] }}\nPreferred Installation Date:{{ $json['Preferred Installation Date'] }}",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        416,
+        -96
+      ],
+      "id": "82f63d84-2a09-4089-8e3d-d26f278883cc",
+      "name": "Send a message",
+      "webhookId": "c3450e84-0537-4584-ae1a-5bfb793e632e",
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "5os17uNJtt5yTyA7",
+          "name": "Slack account"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "On form submission": [
+      {
+        "json": {
+          "Email Address": "name@email.com",
+          "Preferred Installation Date": "2025-09-10",
+          "submittedAt": "2025-09-07T08:06:29.680+05:30",
+          "formMode": "test"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "is within 7 days?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "is within 7 days?": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "todo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "7a26281c-f1bd-4361-9cd0-ce20c50df156",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "1e8bf93c393d2fd2b102938e39b35d26d5f6df15c7193642187723a6f7808d93"
+  },
+  "id": "6ZhFpU08VuJHAxca",
+  "tags": []
+}
