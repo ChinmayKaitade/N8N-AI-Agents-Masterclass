@@ -32,7 +32,6 @@ This playlist is perfect for:
 
 - **Students & Beginners** looking to learn AI in Hindi.
 - **Developers & Freelancers** who want to upgrade their skills with modern AI tools.
-- **Entrepreneurs & Startups** exploring how to leverage AI for their business.
 - **Anyone** with an interest in the future of technology and automation!
 
 ### **Module 1: Foundations of AI Agents 💡**
@@ -67,3 +66,28 @@ This playlist is perfect for:
 - The course is designed to be accessible, regardless of your technical background.
 
 > More Things Adding in Progress...
+
+## 🔗 Let’s Connect
+
+<p align="center">
+  <a href="https://www.linkedin.com/in/chinmay-sharad-kaitade" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
+  </a>
+  <a href="mailto:chinmaykaitade123@gmail.com" target="_blank">
+    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
+  </a>
+  <a href="https://twitter.com/chinmaydotcom" target="_blank">
+    <img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=twitter&logoColor=white" />
+  </a>
+  <a href="https://github.com/ChinmayKaitade" target="_blank">
+    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+  <a href="https://chinmaykaitadeportfolio.vercel.app/" target="_blank">
+    <img src="https://img.shields.io/badge/Portfolio-58A6FF?style=for-the-badge&logo=vercel&logoColor=white" />
+  </a>
+  <a href="https://www.youtube.com/@chinmaykaitade" target="_blank">
+    <img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
+  </a>
+</p>
+
+---
