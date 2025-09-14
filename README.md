@@ -91,3 +91,11 @@ This playlist is perfect for:
 </p>
 
 ---
+
+## 📄 License
+
+This project is licensed under the [MIT License](./LICENSE).
+
+---
+
+> Made with ❤️ by Chinmay Kaitade
