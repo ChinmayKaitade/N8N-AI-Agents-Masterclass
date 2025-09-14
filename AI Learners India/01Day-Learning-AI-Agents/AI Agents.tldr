@@ -1,0 +1,2665 @@
+{
+	"tldrawFileFormatVersion": 1,
+	"schema": {
+		"schemaVersion": 2,
+		"sequences": {
+			"com.tldraw.store": 4,
+			"com.tldraw.asset": 1,
+			"com.tldraw.camera": 1,
+			"com.tldraw.document": 2,
+			"com.tldraw.instance": 25,
+			"com.tldraw.instance_page_state": 5,
+			"com.tldraw.page": 1,
+			"com.tldraw.instance_presence": 6,
+			"com.tldraw.pointer": 1,
+			"com.tldraw.shape": 4,
+			"com.tldraw.asset.bookmark": 2,
+			"com.tldraw.asset.image": 5,
+			"com.tldraw.asset.video": 5,
+			"com.tldraw.shape.group": 0,
+			"com.tldraw.shape.text": 3,
+			"com.tldraw.shape.bookmark": 2,
+			"com.tldraw.shape.draw": 2,
+			"com.tldraw.shape.geo": 10,
+			"com.tldraw.shape.note": 9,
+			"com.tldraw.shape.line": 5,
+			"com.tldraw.shape.frame": 1,
+			"com.tldraw.shape.arrow": 7,
+			"com.tldraw.shape.highlight": 1,
+			"com.tldraw.shape.embed": 4,
+			"com.tldraw.shape.image": 5,
+			"com.tldraw.shape.video": 4,
+			"com.tldraw.binding.arrow": 1
+		}
+	},
+	"records": [
+		{
+			"id": "pointer:pointer",
+			"typeName": "pointer",
+			"x": 1229.0474672048458,
+			"y": 2491.555896873494,
+			"lastActivityTimestamp": 1757817370931,
+			"meta": {}
+		},
+		{
+			"x": 730.2431267590653,
+			"y": 2483.621235271858,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:p47ELXku5ObFX-HmocaWD",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 469.5225883812875,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.0816415681587879,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "Your intelligent, proactive sidekick."
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "at8Lz",
+			"typeName": "shape"
+		},
+		{
+			"x": 328.0675534364535,
+			"y": 1541.503038804778,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:aTznq86J7F4thmiZYKmEK",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 237.50543490173223,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": false,
+				"scale": 1.225365455998206,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "AI Automation 🤖"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "aQC4b",
+			"typeName": "shape"
+		},
+		{
+			"x": 268.0576844037831,
+			"y": 1794.9185984264375,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:4Jma6oshaSb6aj6eqQ7RL",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 282.88543701171875,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.253524555763613,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "❌ No, doesn't improve"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "ad7x4",
+			"typeName": "shape"
+		},
+		{
+			"x": -20.769867713712443,
+			"y": 2122.0740479702526,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:92rCoYbpZrriwPPlk4M-J",
+			"type": "line",
+			"props": {
+				"dash": "solid",
+				"size": "m",
+				"color": "orange",
+				"spline": "line",
+				"points": {
+					"a1": {
+						"id": "a1",
+						"index": "a1",
+						"x": 0,
+						"y": 0
+					},
+					"a21AU": {
+						"id": "a21AU",
+						"index": "a21AU",
+						"x": 1349.0032860489707,
+						"y": 1.3688618716159908
+					}
+				},
+				"scale": 1
+			},
+			"parentId": "page:page",
+			"index": "ab8Po",
+			"typeName": "shape"
+		},
+		{
+			"x": 2.5004668822118106,
+			"y": 1920.8528567078329,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:z6J1FObO5zx2-usnoDMt3",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 153.8125,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.3380320962743213,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "Interaction?"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "agARv",
+			"typeName": "shape"
+		},
+		{
+			"x": 267.5812947747799,
+			"y": 1651.5257719064748,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:P3SVV-nTHRQSO_wHELUCB",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 383.5011685366806,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.2012565968259377,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "❌ No, follows fixed rules"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "aT7jo",
+			"typeName": "shape"
+		},
+		{
+			"x": 266.68879120164456,
+			"y": 2031.7299163761606,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:IQq-VyFLT6NOB4trOIMIs",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 317.6901296013407,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.253524555763613,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "❌ Low, needs setup"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "alBeY",
+			"typeName": "shape"
+		},
+		{
+			"x": 229.66668701171875,
+			"y": 97.99998474121094,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:K15zFGPDFsfClg0X8Ns-z",
+			"type": "text",
+			"props": {
+				"color": "red",
+				"size": "m",
+				"w": 343.84375,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.3086816477936558,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "Day-01: Learning AI Agents"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "a1",
+			"typeName": "shape"
+		},
+		{
+			"x": 745.2687153875052,
+			"y": 1529.7717663689427,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:rxXlTJg8mTkF-l_puGB6w",
+			"type": "line",
+			"props": {
+				"dash": "solid",
+				"size": "m",
+				"color": "orange",
+				"spline": "line",
+				"points": {
+					"a1": {
+						"id": "a1",
+						"index": "a1",
+						"x": 0.676988871360436,
+						"y": 3.6103835102574067
+					},
+					"a2B49": {
+						"id": "a2B49",
+						"index": "a2B49",
+						"x": 9.469170137284664,
+						"y": 745.2607245655281
+					}
+				},
+				"scale": 1
+			},
+			"parentId": "page:page",
+			"index": "aR07j",
+			"typeName": "shape"
+		},
+		{
+			"x": 228.94660209582372,
+			"y": -1834.3014073590662,
+			"z": 0.5041172769327824,
+			"meta": {},
+			"id": "camera:page:page",
+			"typeName": "camera"
+		},
+		{
+			"x": 9.754639273949039,
+			"y": 2440.974425149283,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:sDRaKylkf4pyDSFRQfEG6",
+			"type": "text",
+			"props": {
+				"color": "violet",
+				"size": "m",
+				"w": 185.83334350585938,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.2857510945229256,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "AI Automation"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "ar5dn",
+			"typeName": "shape"
+		},
+		{
+			"x": 7.10958055285613,
+			"y": 2483.621235271858,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:GqTPzjmAACrmG8ytZ_xLM",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 422.3958435058594,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.0816415681587879,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "Your predictable digital assistant."
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "asBk1",
+			"typeName": "shape"
+		},
+		{
+			"x": 788.9108928855442,
+			"y": 1774.2664539668685,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:zJG9BciLObh1xA_HlOsq7",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 402.0152575977273,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.21126933483465,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "✅ Yes, gets smarter over "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "time"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "af8OX",
+			"typeName": "shape"
+		},
+		{
+			"x": 276.27079297243176,
+			"y": 2141.2378948592136,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:1X_iVMkIlA9xanifIPU5m",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 332.04168701171875,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.1690160481371676,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "Auto-sending invoice after"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "purchase 💳"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "an0hF",
+			"typeName": "shape"
+		},
+		{
+			"x": 788.910892885544,
+			"y": 1926.208993817395,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:LVBaNB1cD5z36cQYcQila",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 316.9488339250711,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.21126933483465,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "✅ Highly interactive"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "afh8g",
+			"typeName": "shape"
+		},
+		{
+			"x": 16.1889171968092,
+			"y": 2135.762635355887,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:n0gahURwlMiYcHhAw8QSB",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 104.96875,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.3802834487403295,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "Example"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "amC4P",
+			"typeName": "shape"
+		},
+		{
+			"x": 789.5954021476589,
+			"y": 2039.82362057634,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:J_paEArTukqDLvMvOyq9T",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 431.8680120675085,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.21126933483465,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "✅ High, minimal supervision"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "afvnI85k",
+			"typeName": "shape"
+		},
+		{
+			"x": -24.056034071691897,
+			"y": 1596.8608358906868,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:XBcJyI9Md1j0lsMYubRaZ",
+			"type": "line",
+			"props": {
+				"dash": "solid",
+				"size": "m",
+				"color": "orange",
+				"spline": "line",
+				"points": {
+					"a1": {
+						"id": "a1",
+						"index": "a1",
+						"x": 0,
+						"y": 0
+					},
+					"a22Kv": {
+						"id": "a22Kv",
+						"index": "a22Kv",
+						"x": 1352.112552524391,
+						"y": -5.726235472468488
+					}
+				},
+				"scale": 1
+			},
+			"parentId": "page:page",
+			"index": "aM0tD",
+			"typeName": "shape"
+		},
+		{
+			"x": -41.815630528202306,
+			"y": 652.694688701414,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:Jgl2cnD3OsIAttfYJpExH",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 1213.479248046875,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "bulletList",
+							"content": [
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"text": "Email Automations 📧: Automatically sends pricing details whenever someone fills"
+												}
+											]
+										},
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"text": "your website form."
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"text": "Social Media Scheduling 📱: Posts Intagram content at scheduled times without you"
+												}
+											]
+										},
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"text": "logging in."
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"text": "Smart Home Automation 🏠: Alexa automatially turning lights on every day at sunset."
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"text": "Chatbots (Basic) 💭: Responds with standard messages (\"Thanks for reachung out\") without"
+												}
+											]
+										},
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"text": "detailed conversation."
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "aBAyT",
+			"typeName": "shape"
+		},
+		{
+			"x": 238.22561668189303,
+			"y": 1533.4277496656398,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:vvtluLVw37PU5-AevAwL8",
+			"type": "line",
+			"props": {
+				"dash": "solid",
+				"size": "m",
+				"color": "orange",
+				"spline": "line",
+				"points": {
+					"a1": {
+						"id": "a1",
+						"index": "a1",
+						"x": 0,
+						"y": 0
+					},
+					"a268A": {
+						"id": "a268A",
+						"index": "a268A",
+						"x": 2.147477557281263,
+						"y": 744.4134948207375
+					}
+				},
+				"scale": 1
+			},
+			"parentId": "page:page",
+			"index": "aN0Bj",
+			"typeName": "shape"
+		},
+		{
+			"x": 792.3330632298448,
+			"y": 1629.1681608133752,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:dtnaleFtRTu_hOzIo0O_A",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 422.94750579033865,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.21126933483465,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "✅ Yes, makes independent "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "decisions"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "ae4ZH",
+			"typeName": "shape"
+		},
+		{
+			"editingShapeId": "shape:p47ELXku5ObFX-HmocaWD",
+			"croppingShapeId": null,
+			"selectedShapeIds": [
+				"shape:p47ELXku5ObFX-HmocaWD"
+			],
+			"hoveredShapeId": "shape:7lwN79_SGBhHwqDyRf61c",
+			"erasingShapeIds": [],
+			"hintingShapeIds": [],
+			"focusedGroupId": null,
+			"meta": {},
+			"id": "instance_page_state:page:page",
+			"pageId": "page:page",
+			"typeName": "instance_page_state"
+		},
+		{
+			"x": 788.2212479718916,
+			"y": 2143.9756812634905,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:75wCiGeeazGEs5i1L8GMA",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 389.0833435058594,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.1901426914859088,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "AI negotiaing & booking client "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "deals 🤝"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "ao2On",
+			"typeName": "shape"
+		},
+		{
+			"x": -0.9029825078307567,
+			"y": 977.1575088678342,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:G9vCZkJwKRVfYLxTHgFhk",
+			"type": "text",
+			"props": {
+				"color": "violet",
+				"size": "m",
+				"w": 143.5625,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "What It Is:"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "aE68R",
+			"typeName": "shape"
+		},
+		{
+			"x": -34.100471491348415,
+			"y": 1446.5412335493713,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:pBFgp9CF7-WjzH4i-yuh1",
+			"type": "text",
+			"props": {
+				"color": "red",
+				"size": "m",
+				"w": 564.40625,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.2018389779695207,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "🎯 Quick Comparision Table (with Examples!):"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "aK4U5",
+			"typeName": "shape"
+		},
+		{
+			"x": 792.3330632298448,
+			"y": 1629.1681608133752,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:7iXCZeQ_YX2ooZpPnKQxh",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 422.94750579033865,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.21126933483465,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "✅ Yes, makes independent "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "decisions"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "aU1HM",
+			"typeName": "shape"
+		},
+		{
+			"x": -19.401131164188115,
+			"y": 1883.8938368183906,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:oMHHeamZl2uBCU7WzpDqv",
+			"type": "line",
+			"props": {
+				"dash": "solid",
+				"size": "m",
+				"color": "orange",
+				"spline": "line",
+				"points": {
+					"a1": {
+						"id": "a1",
+						"index": "a1",
+						"x": 0,
+						"y": 0
+					},
+					"a21AU": {
+						"id": "a21AU",
+						"index": "a21AU",
+						"x": 1349.0032860489707,
+						"y": 1.3688618716159908
+					}
+				},
+				"scale": 1
+			},
+			"parentId": "page:page",
+			"index": "aY0Hc",
+			"typeName": "shape"
+		},
+		{
+			"x": -74.24223899912897,
+			"y": 933.9015377991839,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:EY93cCL6Sg0KEpKBWilDz",
+			"type": "text",
+			"props": {
+				"color": "red",
+				"size": "m",
+				"w": 491.05783146691465,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.098000411708477,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "orderedList",
+							"attrs": {
+								"start": 2
+							},
+							"content": [
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"text": "AI Agents 🕵️(The Smart Ones!)"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "aC4FO",
+			"typeName": "shape"
+		},
+		{
+			"x": 940.2468351539585,
+			"y": 1541.5562647174522,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:W34WwizWl1iCaX2iwqvHo",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 158.15625,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.197194290417552,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "AI Agent 🕵️"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "aS81m",
+			"typeName": "shape"
+		},
+		{
+			"x": -42.94182708039074,
+			"y": 461.1209352350234,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:IN0mYhvU0S0k-zPGCZ0ab",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 1012.7415982286234,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.0018568007630093,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "bulletList",
+							"content": [
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"text": "Software performing simple, repetative tasks based strictly on rules you set."
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "a63LJ",
+			"typeName": "shape"
+		},
+		{
+			"x": 706.4391722224882,
+			"y": 2417.4990956159977,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:7lwN79_SGBhHwqDyRf61c",
+			"type": "geo",
+			"props": {
+				"w": 544.8467734018031,
+				"h": 140.17906198668425,
+				"geo": "rectangle",
+				"dash": "solid",
+				"growY": 0,
+				"url": "",
+				"scale": 1,
+				"color": "light-blue",
+				"labelColor": "black",
+				"fill": "solid",
+				"size": "m",
+				"font": "draw",
+				"align": "middle",
+				"verticalAlign": "middle",
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph"
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "aqgGt",
+			"typeName": "shape"
+		},
+		{
+			"x": 732.8881854801581,
+			"y": 2440.974425149283,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:BPUsXcfD23DyF3fN-22Fa",
+			"type": "text",
+			"props": {
+				"color": "violet",
+				"size": "m",
+				"w": 166.59852596436275,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.2857510945229256,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "AI Agents"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "arkzS",
+			"typeName": "shape"
+		},
+		{
+			"x": -20.73109869168465,
+			"y": 2325.969696698983,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:rmRWPOoVEqb5XHPQZb5Ar",
+			"type": "text",
+			"props": {
+				"color": "red",
+				"size": "m",
+				"w": 224.66760087789277,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.2255561531047936,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "🌈 Bottom Line"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "ap8RC",
+			"typeName": "shape"
+		},
+		{
+			"x": -26.245409191743903,
+			"y": 1753.8529615916248,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:h73VkMnYosKtOLtA549I-",
+			"type": "line",
+			"props": {
+				"dash": "solid",
+				"size": "m",
+				"color": "orange",
+				"spline": "line",
+				"points": {
+					"a1": {
+						"id": "a1",
+						"index": "a1",
+						"x": 0,
+						"y": 0
+					},
+					"a21AU": {
+						"id": "a21AU",
+						"index": "a21AU",
+						"x": 1349.0032860489707,
+						"y": 1.3688618716159908
+					}
+				},
+				"scale": 1
+			},
+			"parentId": "page:page",
+			"index": "aV5Du",
+			"typeName": "shape"
+		},
+		{
+			"x": -32.015203839847516,
+			"y": 1086.4905680698835,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:xR1hsViJkDvit-SHGIyoP",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 699.2291870117188,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "bulletList",
+							"content": [
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"text": "Smart decision making, adaptive learning."
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"text": "Interactive, autonomous, minimak human oversight."
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "aH0WN",
+			"typeName": "shape"
+		},
+		{
+			"x": 341.35508922051764,
+			"y": 152.66665649414062,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:gFMiPNHDuYrCega07QfsK",
+			"type": "text",
+			"props": {
+				"color": "light-green",
+				"size": "m",
+				"w": 370.38543701171875,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.0617362714018281,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "AI Automations vs AI Agents"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "a31ha",
+			"typeName": "shape"
+		},
+		{
+			"x": 168.99993896484375,
+			"y": 152.66668889576025,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:j0Ryds5N5XmBv_VKHG8Pl",
+			"type": "text",
+			"props": {
+				"color": "orange",
+				"size": "m",
+				"w": 147.64584350585938,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.0617362714018281,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "Module One"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "a21LZ",
+			"typeName": "shape"
+		},
+		{
+			"x": 11.398010302983835,
+			"y": 1799.0250587191936,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:2Dk8GdCY8ED9CTsLFqdiy",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 120.5,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.2957768753453511,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "Learning?"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "acCOL",
+			"typeName": "shape"
+		},
+		{
+			"x": -48.17143642377346,
+			"y": 205.33335876464844,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:S-rgCo18RBJE50_GIumkE",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 1297.3646240234375,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "AI automation and AI agents represents two different approaches to artificial intelligence"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "implementation. While they may seem simillar at first glance, they have fundamental differences"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "in capabilities, learning abilities, and autonomy levels. This explainer will break down these differences"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "with clear examples to help you understand which is which. "
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "a489y",
+			"typeName": "shape"
+		},
+		{
+			"x": -41.81563052820225,
+			"y": 540.8258884653378,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:7HtJ9iB_BfnDtmTvXYI7e",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 609.0625,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "bulletList",
+							"content": [
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"text": "Predictabe, doesn't learn or adapt."
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"text": "Simple interactions, follows clear commands."
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "a9AfK",
+			"typeName": "shape"
+		},
+		{
+			"x": 267.3732378027139,
+			"y": 1920.8529506994016,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:39YmqEAYU1SHlIZcKp8Zq",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 255.5101013679943,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.253524555763613,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "❌ Limited/Basic"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "akBwc",
+			"typeName": "shape"
+		},
+		{
+			"x": -9.531340821727895,
+			"y": 614.4039715582124,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:yDHq4l_ZZwBkeRvDNR4ZB",
+			"type": "text",
+			"props": {
+				"color": "violet",
+				"size": "m",
+				"w": 125.01042175292969,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "Examples:"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "aABur",
+			"typeName": "shape"
+		},
+		{
+			"x": -32.258293417987204,
+			"y": 1010.8769021059595,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:ViR3gJmwTD4yZWPwympDR",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 1229.0521240234375,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "bulletList",
+							"content": [
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"text": "Intelligent AI capable of decision-making, learning from experience, and adapting on-the-fly."
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "aF0qH",
+			"typeName": "shape"
+		},
+		{
+			"x": 26.186875514609085,
+			"y": 1544.253658368565,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:XchJxZ3ZGISFRMLBAkzUq",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 97.48958587646484,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.2750948513331004,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "Feature"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "aOAWJ",
+			"typeName": "shape"
+		},
+		{
+			"x": 268.0576844037831,
+			"y": 1794.9185984264375,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:qZ9JB_52jz-QguqLf3cE1",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 282.88543701171875,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.253524555763613,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "❌ No, doesn't improve"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "ah7ld",
+			"typeName": "shape"
+		},
+		{
+			"x": -27.339393405863916,
+			"y": 1194.035674255587,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:rc0xFoFI5kZzfkfGAoO8I",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 1343.4896240234375,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "bulletList",
+							"content": [
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"text": "Smart Personal Assistants 🎙️: Siri or Google Assistant answering questions, setting remainders,"
+												}
+											]
+										},
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"text": "booking tables at restaurants."
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"text": "AI Sales Agent 💼: AI independently negotiates prices with customers, schedules meetings, and"
+												}
+											]
+										},
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"text": "finalizes deals without your involvment."
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"text": "Self-driving Cars 🚗: Decides routes, avoids collisions , learn from past driving conditions."
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"text": "Advanced ChatGPT Assistant 🤖: Custom trained AI that provides personalized, adapptive interactions,"
+												}
+											]
+										},
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"text": "remembers past conversations, and helps you brainstorm business strategies."
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "aJ7mZ",
+			"typeName": "shape"
+		},
+		{
+			"x": -16.69437398372085,
+			"y": 2417.4990956159977,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:p8MeHgRlkbzA-i6f7o3JC",
+			"type": "geo",
+			"props": {
+				"w": 544.8467734018031,
+				"h": 140.17906198668425,
+				"geo": "rectangle",
+				"dash": "solid",
+				"growY": 0,
+				"url": "",
+				"scale": 1,
+				"color": "light-blue",
+				"labelColor": "black",
+				"fill": "solid",
+				"size": "m",
+				"font": "draw",
+				"align": "middle",
+				"verticalAlign": "middle",
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph"
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "aq9Ig",
+			"typeName": "shape"
+		},
+		{
+			"meta": {},
+			"id": "page:page",
+			"name": "Page 1",
+			"index": "a1",
+			"typeName": "page"
+		},
+		{
+			"gridSize": 10,
+			"name": "",
+			"meta": {},
+			"id": "document:document",
+			"typeName": "document"
+		},
+		{
+			"followingUserId": null,
+			"opacityForNextShape": 1,
+			"stylesForNextShape": {
+				"tldraw:color": "light-blue",
+				"tldraw:geo": "rectangle",
+				"tldraw:dash": "solid",
+				"tldraw:fill": "solid"
+			},
+			"brush": null,
+			"scribbles": [],
+			"cursor": {
+				"type": "default",
+				"rotation": 0
+			},
+			"isFocusMode": false,
+			"exportBackground": true,
+			"isDebugMode": false,
+			"isToolLocked": false,
+			"screenBounds": {
+				"x": 0,
+				"y": 0,
+				"w": 1008,
+				"h": 566
+			},
+			"insets": [
+				false,
+				false,
+				true,
+				false
+			],
+			"zoomBrush": null,
+			"isGridMode": false,
+			"isPenMode": false,
+			"chatMessage": "",
+			"isChatting": false,
+			"highlightedUserIds": [],
+			"isFocused": true,
+			"devicePixelRatio": 1.5,
+			"isCoarsePointer": false,
+			"isHoveringCanvas": true,
+			"openMenus": [],
+			"isChangingStyle": false,
+			"isReadonly": false,
+			"meta": {},
+			"duplicateProps": null,
+			"id": "instance:instance",
+			"currentPageId": "page:page",
+			"typeName": "instance"
+		},
+		{
+			"x": -21.45428298425921,
+			"y": 2002.9839110637986,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:TlN21e6euFTuTJVWiZlvv",
+			"type": "line",
+			"props": {
+				"dash": "solid",
+				"size": "m",
+				"color": "orange",
+				"spline": "line",
+				"points": {
+					"a1": {
+						"id": "a1",
+						"index": "a1",
+						"x": 0,
+						"y": 0
+					},
+					"a21AU": {
+						"id": "a21AU",
+						"index": "a21AU",
+						"x": 1349.0032860489707,
+						"y": 1.3688618716159908
+					}
+				},
+				"scale": 1
+			},
+			"parentId": "page:page",
+			"index": "aa1DN",
+			"typeName": "shape"
+		},
+		{
+			"x": 12.483997969475695,
+			"y": 1645.8529943350622,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:fm7srUt8YRqP7KaoI7LHa",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 117.625,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.2750956383865315,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "Thinking?"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "aP8i0",
+			"typeName": "shape"
+		},
+		{
+			"x": 0.7159079890398914,
+			"y": 1159.4341569162373,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:g6xJ5O8yLnyemhrpBBop8",
+			"type": "text",
+			"props": {
+				"color": "violet",
+				"size": "m",
+				"w": 125.01042175292969,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "Examples:"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "aI8lV",
+			"typeName": "shape"
+		},
+		{
+			"x": -0.21925195731292035,
+			"y": 1051.8891149438514,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:B3w9j-HTklzkC68wnXUUE",
+			"type": "text",
+			"props": {
+				"color": "violet",
+				"size": "m",
+				"w": 117.52083587646484,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "Features:"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "aG6El",
+			"typeName": "shape"
+		},
+		{
+			"x": -22.671286003476155,
+			"y": 1530.7159669583373,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:SOlquMqZjM2leXJ-WzdNw",
+			"type": "geo",
+			"props": {
+				"w": 1352.6186288881497,
+				"h": 745.7891345946889,
+				"geo": "rectangle",
+				"dash": "solid",
+				"growY": 0,
+				"url": "",
+				"scale": 1,
+				"color": "orange",
+				"labelColor": "black",
+				"fill": "none",
+				"size": "m",
+				"font": "draw",
+				"align": "middle",
+				"verticalAlign": "middle",
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph"
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "aL51M",
+			"typeName": "shape"
+		},
+		{
+			"x": -11.032939088711856,
+			"y": 502.53510258455356,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:7UFhphV3MVFMGevVzcFwS",
+			"type": "text",
+			"props": {
+				"color": "violet",
+				"size": "m",
+				"w": 117.52083587646484,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "Features:"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "a85K0",
+			"typeName": "shape"
+		},
+		{
+			"x": 267.3732378027139,
+			"y": 1920.8529506994016,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:D7FYFsFKBTBXcQLc1D4vq",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 255.5101013679943,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.253524555763613,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "❌ Limited/Basic"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "ai915",
+			"typeName": "shape"
+		},
+		{
+			"x": -10.282152843516613,
+			"y": 425.9537714045241,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:dEStxB6NrwoM6VlkqNBpH",
+			"type": "text",
+			"props": {
+				"color": "violet",
+				"size": "m",
+				"w": 143.5625,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "What It Is:"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "a70eQ",
+			"typeName": "shape"
+		},
+		{
+			"x": 8.643936098861587,
+			"y": 878.2065781424554,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:N6zkR06MvHYyigbszeb7F",
+			"type": "text",
+			"props": {
+				"color": "red",
+				"size": "m",
+				"w": 541.6979370117188,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "Trick: Watchman Wala Example Yaad Rakho"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "aDBYI",
+			"typeName": "shape"
+		},
+		{
+			"x": 7.975871289205912,
+			"y": 2027.623268100268,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:dDsahMKc50qsTeTuNF48N",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 136.25,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.2957788095768392,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "Autonomy?"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "aj8hb",
+			"typeName": "shape"
+		},
+		{
+			"x": -73.97747895084785,
+			"y": 374.27997746335404,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:fGsKRKy9Bom3rt4Rj6TTi",
+			"type": "text",
+			"props": {
+				"color": "red",
+				"size": "m",
+				"w": 271.8125,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.1843966351381838,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "orderedList",
+							"attrs": {
+								"start": 1
+							},
+							"content": [
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"text": "AI Automation🤖"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "a50du",
+			"typeName": "shape"
+		}
+	]
+}
