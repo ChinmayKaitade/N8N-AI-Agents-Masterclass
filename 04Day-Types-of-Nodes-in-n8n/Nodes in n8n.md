@@ -72,9 +72,9 @@ It's a simple, powerful chain reaction:
 
 **Trigger nodes** are the "GO!" signal for your entire workflow. They're the starting point that waits for something specific to happen, telling your system exactly when to begin. They sit quietly until the perfect moment, then they shout, "Let's go!" 🚀
 
-* **Email triggers** activate as soon as a new message lands in your inbox. 📧
-* **Schedule triggers** run at the exact times you set them. ⏱️
-* **Message triggers** respond the moment you send a WhatsApp message. 💬
+- **Email triggers** activate as soon as a new message lands in your inbox. 📧
+- **Schedule triggers** run at the exact times you set them. ⏱️
+- **Message triggers** respond the moment you send a WhatsApp message. 💬
 
 ---
 
@@ -82,8 +82,8 @@ It's a simple, powerful chain reaction:
 
 Think of **action nodes** as your super-efficient digital assistants. They handle all the heavy lifting in your favorite apps automatically. The moment a trigger goes off, they're ready to jump in and get the job done!
 
-* **Task Instructions**: They wait for your commands, ready to execute specific tasks. ✍️
-* **Performs Tasks**: They take on the work you'd normally have to do manually, from adding data to a spreadsheet to sending a message. 📊
-* **Delivers Results**: They make sure the job is completed and the final result is exactly what you wanted. ✅
+- **Task Instructions**: They wait for your commands, ready to execute specific tasks. ✍️
+- **Performs Tasks**: They take on the work you'd normally have to do manually, from adding data to a spreadsheet to sending a message. 📊
+- **Delivers Results**: They make sure the job is completed and the final result is exactly what you wanted. ✅
 
 Simply tell them what needs doing, and they'll handle it—no manual effort required! 🤖
