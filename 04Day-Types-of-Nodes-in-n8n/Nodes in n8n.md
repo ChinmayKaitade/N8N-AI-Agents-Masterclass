@@ -65,3 +65,25 @@ It's a simple, powerful chain reaction:
 3.  **Utility** 🧰: The toolkit organizes any messy information.
 4.  **Code** 👨‍💻: Your special instructions customize the process.
 5.  **AI** 🔮: The wizard makes everything smarter.
+
+Triggers: Your Automation Doorbell
+
+Trigger nodes act as the "GO!" signal for your automation workflow.
+
+They're the starting point that tells your system when to begin.
+
+- Email triggers activate when messages arrive in your inbox
+- Schedule triggers run at specific times you set
+- Message triggers respond when you send a WhatsApp message
+
+Actions: The Task Performers
+
+- Task Instructions: Action nodes wait for your commands, ready to execute specific tasks.
+
+- Performs Tasks: They handle the heavy lifting in your favorite apps automatically.
+
+- Delivers Results: From adding spreadsheet data to sending messages, actions complete the job.
+
+Think of action nodes as your digital assistants. They step in the when the trigger sounds, performing tasks that would require your time and attention.
+
+Simply tell them what needs doing, and they'll handle it-no manual effort required!
