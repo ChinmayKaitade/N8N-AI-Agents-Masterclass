@@ -1,0 +1,283 @@
+{
+  "name": "Day-06:Customer Data | Mockaroo",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -288,
+        -80
+      ],
+      "id": "0d36eeb9-8a72-4a4b-b61c-b86ecdbdd5ce",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "operation": "getAllPeople"
+      },
+      "type": "n8n-nodes-base.n8nTrainingCustomerDatastore",
+      "typeVersion": 1,
+      "position": [
+        -64,
+        -80
+      ],
+      "id": "8f6506e9-585d-49a2-bbee-0e9dcac3d82a",
+      "name": "Customer Datastore (n8n training)"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1R5YcPP6wRu9uJLmFEtAWLbZEWdcpgAB_c85Kv9LCW4I",
+          "mode": "list",
+          "cachedResultName": "n8n Customer Data Mockaroo",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1R5YcPP6wRu9uJLmFEtAWLbZEWdcpgAB_c85Kv9LCW4I/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 122156281,
+          "mode": "list",
+          "cachedResultName": "MOCK_DATA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1R5YcPP6wRu9uJLmFEtAWLbZEWdcpgAB_c85Kv9LCW4I/edit#gid=122156281"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        160,
+        -80
+      ],
+      "id": "dd56db6c-87fd-482b-a2a0-dfc52d4c9d15",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "pzdm0ZPv3G0m9lfF",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "5175fa54-3858-44f4-9a56-d94c7c51f542",
+              "leftValue": "={{ $('Get row(s) in sheet').item.json.country }}",
+              "rightValue": "China",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        608,
+        -80
+      ],
+      "id": "b72fceee-38a2-42fe-bb2f-61bc4764bfe0",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2f4afd12-8a97-472c-bf0a-14e1908e2ce3",
+              "name": "Full Name",
+              "value": "={{ $json['Full Name'] }}",
+              "type": "string"
+            },
+            {
+              "id": "7face55a-ae4e-458c-aef4-9d06c2fbb8a4",
+              "name": "Mobile",
+              "value": "={{ $json.Mobile }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        832,
+        -176
+      ],
+      "id": "f362611c-886a-41e2-ab55-8753b2b339b5",
+      "name": "Customers from China"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5d7b8aea-7bad-4909-ad53-006558ae76da",
+              "name": "Full Name",
+              "value": "={{ $json.first_name }} {{ $json.last_name }}",
+              "type": "string"
+            },
+            {
+              "id": "fe9517cf-1e32-465b-b7b3-968f27e2bf3a",
+              "name": "Email",
+              "value": "={{ $json.email }}",
+              "type": "string"
+            },
+            {
+              "id": "7a559bac-4466-4892-a4d8-a8e93480644e",
+              "name": "Mobile",
+              "value": "={{ $json.phone_number }}",
+              "type": "string"
+            },
+            {
+              "id": "97cfef42-cc04-4f89-87db-c5d6c1a74f6e",
+              "name": "Country",
+              "value": "={{ $json.country }}",
+              "type": "string"
+            },
+            {
+              "id": "7e7d39f8-f894-4328-ad29-e0f59f090713",
+              "name": "Customer ID",
+              "value": "={{ $json.customer_id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        384,
+        -80
+      ],
+      "id": "b40fad16-3e5a-4e4b-814c-a0b229a2d991",
+      "name": "All Customers Data Fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2f4afd12-8a97-472c-bf0a-14e1908e2ce3",
+              "name": "Full Name",
+              "value": "={{ $json['Full Name'] }}",
+              "type": "string"
+            },
+            {
+              "id": "7face55a-ae4e-458c-aef4-9d06c2fbb8a4",
+              "name": "Mobile",
+              "value": "={{ $json.Mobile }}",
+              "type": "string"
+            },
+            {
+              "id": "6335dd11-c332-40f6-b25d-7b4d9ea36727",
+              "name": "Country",
+              "value": "={{ $json.Country }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        832,
+        16
+      ],
+      "id": "b10c0087-1ccb-4063-b571-d9d6243b4575",
+      "name": "Customers from Other Country"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Customer Datastore (n8n training)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Customer Datastore (n8n training)": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "All Customers Data Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Customers from China",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Customers from Other Country",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "All Customers Data Fields": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "09e121bc-401e-4c2b-a86c-5be0094df5bd",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "1e8bf93c393d2fd2b102938e39b35d26d5f6df15c7193642187723a6f7808d93"
+  },
+  "id": "NOCQAdTjW7YyQMWk",
+  "tags": []
+}
