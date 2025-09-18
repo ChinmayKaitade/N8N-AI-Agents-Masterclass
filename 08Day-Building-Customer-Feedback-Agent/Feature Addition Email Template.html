@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feature Request Acknowledgment</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333333;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+      .email-container {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .header {
+        text-align: center;
+        border-bottom: 1px solid #dddddd;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+      }
+      .header h1 {
+        color: #1a1a1a;
+        font-size: 24px;
+        margin: 0;
+      }
+      .content {
+        font-size: 16px;
+        color: #555555;
+      }
+      .content p {
+        margin-bottom: 15px;
+      }
+      .signature {
+        padding-top: 20px;
+        border-top: 1px solid #dddddd;
+        margin-top: 20px;
+        font-size: 16px;
+        color: #777777;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="email-container">
+      <div class="header">
+        <h1>Feature Request Acknowledgment</h1>
+      </div>
+      <div class="content">
+        <p>Hi {{ $('Switch').item.json['Full Name'] }},</p>
+        <p>
+          Thank you for your valuable feedback! We have successfully received
+          your feature request regarding 👇
+          <br />
+          <i>"{{ $('Switch').item.json.Feedback }}"</i>.
+        </p>
+
+        <p>
+          We are always looking for ways to improve our service, and your idea
+          is greatly appreciated.
+        </p>
+
+        <p>
+          Our team is actively reviewing your request to understand its
+          potential and will consider it for a future update.
+        </p>
+
+        <p>
+          We truly appreciate your patience and your help in making our service
+          better.🤝
+        </p>
+
+        <p>
+          If you have any further questions or would like to provide more
+          details, please don't hesitate to reply to this email.
+        </p>
+      </div>
+      <div class="signature">
+        <p>Best regards,</p>
+        <p>Chinmay Kaitade<br />The Developers Team - CK</p>
+      </div>
+    </div>
+  </body>
+</html>
