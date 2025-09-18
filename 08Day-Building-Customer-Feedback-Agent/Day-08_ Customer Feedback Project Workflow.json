@@ -1,5 +1,5 @@
 {
-  "name": "Customer Feedback Project Workflow",
+  "name": "Day-08: Customer Feedback Project Workflow",
   "nodes": [
     {
       "parameters": {
@@ -71,7 +71,7 @@
       "credentials": {
         "googlePalmApi": {
           "id": "GsjWF7e36JHG398f",
-          "name": "Google Gemini(PaLM) Api account"
+          "name": "Google Gemini(PaLM) API"
         }
       }
     },
@@ -263,7 +263,7 @@
       "credentials": {
         "airtableTokenApi": {
           "id": "XAeG9KmJBLlG1la7",
-          "name": "Airtable Personal Access Token account"
+          "name": "Day-08: Customer Feedback Project Workflow"
         }
       }
     },
@@ -355,7 +355,7 @@
       "credentials": {
         "airtableTokenApi": {
           "id": "XAeG9KmJBLlG1la7",
-          "name": "Airtable Personal Access Token account"
+          "name": "Day-08: Customer Feedback Project Workflow"
         }
       }
     },
@@ -447,7 +447,7 @@
       "credentials": {
         "airtableTokenApi": {
           "id": "XAeG9KmJBLlG1la7",
-          "name": "Airtable Personal Access Token account"
+          "name": "Day-08: Customer Feedback Project Workflow"
         }
       }
     },
@@ -476,7 +476,7 @@
       "credentials": {
         "slackOAuth2Api": {
           "id": "uUNEcqpBIqiGbWis",
-          "name": "Slack account 2"
+          "name": "Day-08: Customer Feedback Slack"
         }
       }
     },
@@ -505,7 +505,7 @@
       "credentials": {
         "slackOAuth2Api": {
           "id": "uUNEcqpBIqiGbWis",
-          "name": "Slack account 2"
+          "name": "Day-08: Customer Feedback Slack"
         }
       }
     },
@@ -528,7 +528,7 @@
       "credentials": {
         "gmailOAuth2": {
           "id": "olX5NZVvQyvi4Cef",
-          "name": "Gmail account"
+          "name": "Day-08: Customer Feedback Email"
         }
       }
     },
@@ -551,7 +551,36 @@
       "credentials": {
         "gmailOAuth2": {
           "id": "olX5NZVvQyvi4Cef",
-          "name": "Gmail account"
+          "name": "Day-08: Customer Feedback Email"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C09G7UAJJGZ",
+          "mode": "list",
+          "cachedResultName": "complaint"
+        },
+        "text": "={{ $('Switch').item.json['Full Name'] }} \n\n{{ $('Switch').item.json.Email }} \n\n{{ $('Switch').item.json.Feedback }}",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        1248,
+        -144
+      ],
+      "id": "df05a46c-ee07-4251-92f1-c645ff08bdab",
+      "name": "Compliment Message Slack",
+      "webhookId": "a9491b65-da80-4f5b-9b98-9f96fba5af88",
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "uUNEcqpBIqiGbWis",
+          "name": "Day-08: Customer Feedback Slack"
         }
       }
     }
@@ -675,13 +704,24 @@
           }
         ]
       ]
+    },
+    "Compliment": {
+      "main": [
+        [
+          {
+            "node": "Compliment Message Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "3ff1bca6-e49c-4fa9-bdbe-a3e92d1a9175",
+  "versionId": "b10fbbd2-b567-4805-86dd-bfe6e1739118",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "1e8bf93c393d2fd2b102938e39b35d26d5f6df15c7193642187723a6f7808d93"
