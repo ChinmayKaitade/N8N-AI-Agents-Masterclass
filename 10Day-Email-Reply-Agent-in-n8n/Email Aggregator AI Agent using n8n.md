@@ -1,5 +1,3 @@
-Here are the detailed and attractive notes for the n8n AI agent workflow based on the image you provided.
-
 # 🤖 Building an AI Agent Workflow 🚀
 
 This n8n workflow demonstrates how to create a simple, automated AI agent that can reply to emails based on specific criteria. Think of it as your personal assistant for handling routine inquiries! 📧
