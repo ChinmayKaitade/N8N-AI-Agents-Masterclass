@@ -1,0 +1,316 @@
+{
+  "name": "Day-11: Crafting AI Prompts in XML",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 2
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "02763d4e-4039-4b41-8b5d-ab7e3166257e",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "filters": {
+          "labelIds": [
+            "UNREAD"
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "dd78c4fb-a56a-478e-ae66-156428391ca7",
+      "name": "Gmail All Mails",
+      "webhookId": "f4f64d2d-e4f5-40f1-9618-5e9c1f75baf1",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "ervj6D7So96jXJEa",
+          "name": "Day-11: Crafting AI Agents with XML - 2nd Account Email"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "messageId": "={{ $json.threadId }}",
+        "simple": false,
+        "options": {
+          "downloadAttachments": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        416,
+        0
+      ],
+      "id": "00bb472e-f52f-4e62-8bff-f0d7f838b4fc",
+      "name": "Gmail All Details",
+      "webhookId": "9bda6e00-8c50-4431-84ac-91bf885ca6a5",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "ervj6D7So96jXJEa",
+          "name": "Day-11: Crafting AI Agents with XML - 2nd Account Email"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Subject:{{ $json.headers.subject }}\n\nEmail Body:{{ $json.text }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "<AgentInstructions>\n    <Role>\n        <Name>Email Reply Agent</Name>\n        <Description>A Helpful Email Reply Agent</Description>\n    </Role>\n\n    <Goal>\n        <Primary>Draft custom but very professional email replies which are 100% humanlike\n        </Primary>\n        <Secondary>As an Email reply agent you should not only reply but also build trust and Reputation with the person you are replying to\n        </Secondary>\n    </Goal>\n\n    <Instructions>\n        <Instruction>\n            Once you receive the email, you should thoroughly understand and analyse the subject line and full email body message\n        </Instruction>\n        <Instruction>\n            After you read the email, Review <Details> and <Aim> to understand the context of the user before drafting a reply for them\n        </Instruction>\n        <Instruction>\n            Draft a professional Reply using <UserInfo>. Use Age where necessary\n        </Instruction>\n    </Instructions>\n\n    <UserInfo>\n        <Details>\n            <Detail name=\"Username\">Chinmay Kaitade</Detail>\n            <Detail company=\"Company\">The Developers Team - CK</Detail>\n            <Detail age=\"Age\">25</Detail>\n            <Detail age=\"Contact Info\">+91-0987654321</Detail>\n        </Details>\n\n        <Aims>\n            <Aim name=\"Mission\">Wants to teach AI to people in the most simplest way.</Aim>\n            <Aim name=\"Focus\">Right now focusing more on teaching rather than collabs and promotions.</Aim>\n            <Aim name=\"Community Focus\">Focus on Community Right Now.</Aim>\n        </Aims>\n    </UserInfo>  \n\n    <Examples>\n        <Example>\n            <UserInput>\n                Subject: Promotional Message\n                This message is regarding a promotion that we are going on doing\n            </UserInput>\n\n            <UserOutput>\n                Hello [Sender's Name],\n\n                Thank you for reaching out and for your interest in a promotional collaboration. I appreciate you taking the time to contact The Developers Team.\n\n                At this moment, our primary focus is on teaching AI in the simplest way and building our community. As a result, we are currently not open to collaborations or promotional activities.\n\n                I am open to discussions about potential future projects or other opportunities. Please feel free to connect if you have a project in mind that aligns with our mission.\n\n                Warm Regards,\n                Chinmay Kaitade\n                Founder, The Developers Team - CK\n                +91-0987654321\n            </UserOutput>\n        </Example>\n\n        <Example>\n            <UserInput>\n                Subject: Regarding the Project details\n                I want to know if you're interested in doing the project with us. We have a new upcoming project coming up where in we are building AI agent and we will give you $1 million.\n            </UserInput>\n\n            <UserOutput>\n                Hello [Sender's Name],\n\n                Thank you for reaching out with this project inquiry and for considering The Developers Team. The project details you've shared sound very interesting.\n\n                As a team, our core mission is focused on teaching AI and building a strong community, and a project involving AI agents aligns directly with our expertise and goals. I am certainly interested in discussing this opportunity further.\n\n                Please let me know a suitable time for a brief meeting to learn more about the project and its requirements.\n\n                Warm Regards,\n                Chinmay Kaitade\n                Founder, The Developers Team - CK\n                +91-0987654321\n            </UserOutput>\n        </Example>\n\n        <Example>\n            <UserInput>\n                Subject: Requesting meeting time\n                Hey Brother, I actually wanted your meeting time for Tuesday morning of this month would that be possible?\n            </UserInput>\n\n            <UserOutput>\n            Hello [Sender's Name],\n            \n            Thank you for reaching out. I'm open to a meeting and appreciate you thinking of The Developers Team.\n\n            To confirm a time, could you please provide the specific date for the Tuesday you had in mind? Once I have that, I can check my schedule and get back to you with my availability.\n\n            Warm Regards,\n            Chinmay Kaitade\n            Founder, The Developers Team - CK\n            +91-0987654321\n            </UserOutput>\n        </Example>\n    </Examples>\n</AgentInstructions>"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        624,
+        0
+      ],
+      "id": "d4bc1904-f5f9-498c-92c4-ca7ed78e8108",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        496,
+        208
+      ],
+      "id": "c7159420-405d-4416-b2cb-0fe335b2e115",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "GsjWF7e36JHG398f",
+          "name": "Google Gemini(PaLM) API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appRxvQ7X1evKQPCE",
+          "mode": "list",
+          "cachedResultName": "Crafting AI Prompt with XML",
+          "cachedResultUrl": "https://airtable.com/appRxvQ7X1evKQPCE"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl2C0SgRRpMKWXTi",
+          "mode": "list",
+          "cachedResultName": "Table 1",
+          "cachedResultUrl": "https://airtable.com/appLnP7gwHf8dr69T/tbl2C0SgRRpMKWXTi"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Sender Name": "={{ $('Gmail All Details').item.json.from.value[0].name }}",
+            "From Email": "={{ $('Gmail All Details').item.json.to.value[0].address }}",
+            "Email Body": "={{ $('Gmail All Details').item.json.text }}",
+            "Body Draft Reply": "={{ $json.output }}",
+            "Thread ID": "={{ $('Gmail All Details').item.json.threadId }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Sender Name",
+              "displayName": "Sender Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "From Email",
+              "displayName": "From Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Email Body",
+              "displayName": "Email Body",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Body Draft Reply",
+              "displayName": "Body Draft Reply",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Thread ID",
+              "displayName": "Thread ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        992,
+        0
+      ],
+      "id": "e0b68b16-41bd-47b8-8897-b6540275e1da",
+      "name": "Create a record",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "t5nYaHzaemeHabah",
+          "name": "Day-11: Crafting AI Prompts with XML"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "markAsRead",
+        "messageId": "={{ $('Gmail All Details').item.json.threadId }}"
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1200,
+        0
+      ],
+      "id": "c1e15ec7-8750-4e3e-a541-6bef589723d7",
+      "name": "Mark a message as read",
+      "webhookId": "0bdecfde-0eac-4a77-99f5-558aacb7a018",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "ervj6D7So96jXJEa",
+          "name": "Day-11: Crafting AI Agents with XML - 2nd Account Email"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Gmail All Mails",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail All Mails": {
+      "main": [
+        [
+          {
+            "node": "Gmail All Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail All Details": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Create a record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a record": {
+      "main": [
+        [
+          {
+            "node": "Mark a message as read",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "ed7d0999-44f2-46b2-8eb7-c61bb21907f0",
+  "meta": {
+    "instanceId": "1e8bf93c393d2fd2b102938e39b35d26d5f6df15c7193642187723a6f7808d93"
+  },
+  "id": "yOZWQTBgU9SCx9bL",
+  "tags": []
+}
