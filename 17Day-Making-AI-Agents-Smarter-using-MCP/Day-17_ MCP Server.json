@@ -1,0 +1,130 @@
+{
+  "name": "Day-17: MCP Server",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "1f81c8c8-e892-4ca2-ab39-8e60ac588174"
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpTrigger",
+      "typeVersion": 2,
+      "position": [
+        -312,
+        -32
+      ],
+      "id": "420c1c3e-9572-4a35-b212-00428e36a454",
+      "name": "MCP Server Trigger",
+      "webhookId": "1f81c8c8-e892-4ca2-ab39-8e60ac588174"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "filters": {}
+      },
+      "type": "n8n-nodes-base.gmailTool",
+      "typeVersion": 2.1,
+      "position": [
+        -368,
+        192
+      ],
+      "id": "70067d37-b426-4c34-a4ce-717f03af3933",
+      "name": "Get many messages in Gmail",
+      "webhookId": "b32a0ec8-fbcf-47ba-b8e9-5a70c8431bb4",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "UI1fVYRfffhy6fa7",
+          "name": "Day-17: MCP Server - 2nd Mail Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "filters": {},
+        "options": {}
+      },
+      "type": "n8n-nodes-base.youTubeTool",
+      "typeVersion": 1,
+      "position": [
+        -240,
+        192
+      ],
+      "id": "e118be27-850a-4579-8e80-fac1f9294f24",
+      "name": "Get many channels in YouTube",
+      "credentials": {
+        "youTubeOAuth2Api": {
+          "id": "nO7WKBmPFzphHzJx",
+          "name": "Day-17: Claude with MCP Server"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('To', ``, 'string') }}",
+        "subject": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Subject', ``, 'string') }}",
+        "message": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Message', ``, 'string') }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmailTool",
+      "typeVersion": 2.1,
+      "position": [
+        -112,
+        192
+      ],
+      "id": "351baea9-91a9-4589-87e5-bc6056ec784e",
+      "name": "Send a message in Gmail",
+      "webhookId": "f7aa9fe9-3088-470b-9192-843daf8f0ed4",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "UI1fVYRfffhy6fa7",
+          "name": "Day-17: MCP Server - 2nd Mail Account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Get many messages in Gmail": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many channels in YouTube": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message in Gmail": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "e86e59c7-dde6-4662-8d4c-c2a6ceb24b7b",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "1e8bf93c393d2fd2b102938e39b35d26d5f6df15c7193642187723a6f7808d93"
+  },
+  "id": "JyNzdWIPK3x7TAYz",
+  "tags": []
+}
