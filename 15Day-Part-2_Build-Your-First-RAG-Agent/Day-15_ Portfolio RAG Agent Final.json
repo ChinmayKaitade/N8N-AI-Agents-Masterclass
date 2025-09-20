@@ -1,0 +1,175 @@
+{
+  "name": "Day-15: Portfolio RAG Agent Final",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -368,
+        0
+      ],
+      "id": "3ff9b63c-d59e-458a-84b7-e563339e8dd7",
+      "name": "When chat message received",
+      "webhookId": "94bda8f8-ba6b-4897-a203-ce3ff0a00d85"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -88,
+        0
+      ],
+      "id": "384295f3-e334-4937-b4e3-fb1bfb4b8890",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -144,
+        224
+      ],
+      "id": "7928bcd5-acaf-4025-aeac-2e7f9b0ab98d",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "GsjWF7e36JHG398f",
+          "name": "Google Gemini(PaLM) API"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -16,
+        224
+      ],
+      "id": "aba03acd-2725-4214-9dbb-d66d262f8018",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolDescription": "Retrieves data when the user asks for relevant data about Chinmay Kaitade Portfolio and once the data is retrieved give it in a well structured and simple language in the form of answers.",
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "portfolioairag",
+          "mode": "list",
+          "cachedResultName": "portfolioairag"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1.3,
+      "position": [
+        112,
+        224
+      ],
+      "id": "a537fcd8-987f-4bf5-be33-20d21821b854",
+      "name": "Pinecone Vector Store",
+      "credentials": {
+        "pineconeApi": {
+          "id": "hG5TVLO8kF56Nljf",
+          "name": "Day-15: Portfolio Knowledgebase RAG Agents"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        192,
+        432
+      ],
+      "id": "5c7289b8-edc6-4fa5-9358-f679993a5b11",
+      "name": "Embeddings Google Gemini",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "GsjWF7e36JHG398f",
+          "name": "Google Gemini(PaLM) API"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pinecone Vector Store": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings Google Gemini": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "08784ba5-5405-47d6-bc09-f5fe4649af22",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "1e8bf93c393d2fd2b102938e39b35d26d5f6df15c7193642187723a6f7808d93"
+  },
+  "id": "L20OKJki9UbPTY73",
+  "tags": []
+}
