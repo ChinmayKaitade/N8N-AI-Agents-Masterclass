@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "n8n": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "supergateway",
+        "--sse",
+        "https://n8n.srv708808.hstgr.cloud/mcp..."
+      ]
+    }
+  }
+}
