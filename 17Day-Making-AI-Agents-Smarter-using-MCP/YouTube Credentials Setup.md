@@ -41,3 +41,25 @@ Now, use the credentials you just obtained to set up the connection in N8N.
 4.  **Authorize Access**: A Google sign-in window will pop up. Log in with the Google account you added as a test user in Part 1. Grant N8N the necessary permissions.
 
 Your YouTube credentials are now successfully configured in N8N.
+
+This is a common security message from Google that means the app you're trying to connect isn't publicly verified by them. Don't worry, you don't need to publish your app to fix it. You just need to tell Google that you trust this specific app by adding your email to a list of "test users."
+
+-----
+
+### **How to Fix the "Access Blocked" Error** 🔒
+
+You must configure your app's OAuth Consent screen in the Google Cloud Console to allow your account to connect.
+
+1.  **Go to Your Google Cloud Project**: In the Google Cloud Console, navigate to the project you created for your N8N credentials.
+2.  **Open OAuth Consent Screen**: In the sidebar, go to **APIs & Services** and then select **OAuth consent screen**.
+3.  **Add Your Account as a Test User**:
+      * Scroll down to the section titled **"Test users"**.
+      * Click **"Add users."**
+      * Enter the **exact email address** of the Google account you are trying to use with N8N.
+      * Click **"Save."**
+4.  **Re-attempt Connection**: Go back to N8N and try to connect your Google account again. The error should no longer appear, and you will be able to grant the necessary permissions.
+
+\<br\>
+This video explains why the "Access Blocked" error occurs and provides a step-by-step solution using the Google Cloud Console.
+[Fixing Google API Access Blocked Error: n8n](https://www.youtube.com/watch?v=Ysmt_qsZiXk)
+http://googleusercontent.com/youtube_content/6
