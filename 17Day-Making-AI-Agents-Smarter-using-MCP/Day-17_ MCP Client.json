@@ -1,0 +1,140 @@
+{
+  "name": "Day-17: MCP Client",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        0,
+        0
+      ],
+      "id": "7a0b32e2-6485-47c8-bf18-91236270fada",
+      "name": "When chat message received",
+      "webhookId": "59f73e6b-98cf-4c6c-b3bf-da1331ee6b77"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        288,
+        0
+      ],
+      "id": "15918c72-18c3-48b0-8c2b-15747c832de0",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "claude-sonnet-4-20250514",
+          "cachedResultName": "Claude 4 Sonnet"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        224,
+        224
+      ],
+      "id": "313403bb-0671-4fa5-813d-e7f6c2fb8c0e",
+      "name": "Anthropic Chat Model",
+      "credentials": {
+        "anthropicApi": {
+          "id": "Gt9TOENEM8nZguLS",
+          "name": "Day-17: MCP Client Final"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        352,
+        224
+      ],
+      "id": "50c03a49-ef16-4401-a702-cbf65ed4532c",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "endpointUrl": "https://chinmaydotcom.app.n8n.cloud/mcp/1f81c8c8-e892-4ca2-ab39-8e60ac588174/sse",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "typeVersion": 1.1,
+      "position": [
+        480,
+        224
+      ],
+      "id": "c7784c6b-8e18-4b11-822d-fe420fad24be",
+      "name": "MCP Client"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MCP Client": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "fd4b5531-8021-4541-9f8a-59a440a2a6d6",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "1e8bf93c393d2fd2b102938e39b35d26d5f6df15c7193642187723a6f7808d93"
+  },
+  "id": "TRe1ccMuxHIiFPXm",
+  "tags": []
+}
