@@ -1,0 +1,232 @@
+{
+  "name": "Day-12: Creating Workflow without JSON",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        0,
+        16
+      ],
+      "id": "5e9ea2b8-41d8-4ddb-a6e6-9d3673ebffe2",
+      "name": "When chat message received",
+      "webhookId": "bca821ac-8fe9-4311-96e9-228c1cf2cab2"
+    },
+    {
+      "parameters": {
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "<AgentInstructions>\n    <Role>\n        <name>RecipeGeneratorAgent</name>\n        <description>A helpful cooking assistant that generates custom recipes.\n        </description>\n    </Role>\n\n    <Goal>\n        <Primary>Provide a complete recipe including ingredients and step-by-step instructions based on the user's requested dish. \n        </Primary>\n    </Goal>\n\n    <Instructions>\n        <Instruction>Once you receive the user's dish name note them down carefully.\n        </Instruction>\n\n        <Instruction>Generate a list of ingredients with accurate quantities tailored to the specified serving size.\n        </Instruction>\n\n        <Instruction>Provide clear, step-by-step instructions on how to prepare the dish.</Instruction>\n\n        <Instruction>Where applicable, include cooking times, tips, or variations to enhance the recipe.\n        </Instruction>\n    </Instructions>\n\n    <Examples>\n        <Example>\n            <UserInput>\n                Momos with White Sauce\n            </UserInput>\n\n            <UserOutput>\n               {\n  \"Title\": \"Veg Momos with Creamy White Sauce\",\n  \"Description\": \"Delicious steamed vegetable momos served with a creamy garlic white sauce. Yields approximately 20-25 momos. Prep time: 45 minutes. Cook time: 20-25 minutes.\",\n  \"Ingredients\": \"• 2 cups All-Purpose Flour (Maida)\\n• ½ teaspoon Salt\\n• ½ - ¾ cup Water (as needed for kneading)\\n• 1 teaspoon Oil (for kneading, optional)\\n• 2 cups Cabbage, finely shredded or grated\\n• ½ cup Carrots, finely grated\\n• 1 medium Onion, finely chopped\\n• 1 tablespoon Ginger, grated or finely minced\\n• 1 tablespoon Garlic, finely minced\\n• 1-2 Green Chilies, finely chopped (adjust to taste)\\n• 1-2 tablespoons Soy Sauce\\n• ½ teaspoon Black Pepper powder\\n• Salt to taste\\n• 1 tablespoon Oil (for sautéing)\\n• 1 tablespoon Sesame oil (optional)\\n• 2 tablespoons Spring Onion greens, chopped (optional)\\n• ½ cup Mayonnaise (full-fat preferred)\\n• 2-3 cloves Garlic, finely minced\\n• 1 tablespoon White Vinegar or Lemon Juice\\n• ½ teaspoon Sugar (optional)\\n• ¼ teaspoon Black Pepper powder\\n• Salt to taste\\n• 1-2 tablespoons Water or Milk (to adjust consistency)\\n• A pinch of Chili flakes (optional)\",\n  \"Instructions\": \"1. Mix flour and salt in a large bowl, gradually add water, and knead into a stiff but pliable dough.\\n2. Knead the dough for 5-7 minutes until smooth; add oil if desired, then cover with a damp cloth and rest for 30 minutes.\\n3. Optional: Sprinkle salt on cabbage, let sit for 10 minutes, and squeeze out excess water.\\n4. Heat oil in a pan, sauté onion, ginger, garlic, and green chilies for 2-3 minutes until onion is translucent.\\n5. Add cabbage and carrots; cook 5-7 minutes until slightly softened but still crunchy.\\n6. Stir in soy sauce, pepper, and salt; cook 2-3 minutes until moisture evaporates. Cool completely and add spring onion greens + sesame oil if using.\\n7. Divide rested dough into marble-sized portions and roll into thin 3-4 inch circles.\\n8. Place 1 tbsp filling in the center, pleat edges, and seal tightly into desired momo shape.\\n9. Lightly grease steamer basket or line with parchment/cabbage leaves. Arrange momos with space between.\\n10. Steam for 10-12 minutes until translucent and firm to touch.\\n11. For the sauce: Mix mayonnaise, garlic, vinegar (or lemon juice), sugar, pepper, and chili flakes in a bowl until smooth.\\n12. Gradually add water or milk to adjust consistency. Taste and adjust seasoning as needed.\",\n  \"Tips\": \"• Add a pinch of baking powder to the dough for extra softness.\\n• Experiment with bell peppers, mushrooms, paneer, or tofu in the filling.\\n• Line the steamer with parchment or cabbage leaves to prevent sticking.\\n• Leftover momos can be pan-fried or deep-fried for a crispy twist.\\n• The white sauce can be stored in the refrigerator for 3-4 days in an airtight container.\"\n}\n            </UserOutput>\n        </Example>\n    </Examples>\n</AgentInstructions>\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        224,
+        16
+      ],
+      "id": "c6f901c3-9b0b-4b55-ab97-70f75cb1af7e",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        144,
+        224
+      ],
+      "id": "41fe44ec-67c4-4f68-a5d4-e6fb8879154e",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "GsjWF7e36JHG398f",
+          "name": "Google Gemini(PaLM) API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appy9AhhIUAltXYgO",
+          "mode": "list",
+          "cachedResultName": "Recipe Dashboard",
+          "cachedResultUrl": "https://airtable.com/appy9AhhIUAltXYgO"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbltPjit2Qj9swho3",
+          "mode": "list",
+          "cachedResultName": "Table 1",
+          "cachedResultUrl": "https://airtable.com/appy9AhhIUAltXYgO/tbltPjit2Qj9swho3"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Recipe Name": "={{ $json.output.Title }}",
+            "Description": "={{ $json.output.Description }}",
+            "Ingredients": "={{ $json.output.Ingredients }}",
+            "Instructions": "={{ $json.output.Instructions }}",
+            "Tips": "={{ $json.output.Tips }}"
+          },
+          "matchingColumns": [
+            "Recipe Details"
+          ],
+          "schema": [
+            {
+              "id": "Recipe Name",
+              "displayName": "Recipe Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Ingredients",
+              "displayName": "Ingredients",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Instructions",
+              "displayName": "Instructions",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Tips",
+              "displayName": "Tips",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        576,
+        16
+      ],
+      "id": "2509db79-4980-4467-8feb-5f30bd8f6007",
+      "name": "Create a record",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1ICD3p8Ke7YanvGz",
+          "name": "Day-12: Recipe Dashboard - Workflow without JSON"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"Title\": \"Veg Momos with Creamy White Sauce\",\n  \"Description\": \"Delicious steamed vegetable momos served with a creamy garlic white sauce. Yields approximately 20-25 momos. Prep time: 45 minutes. Cook time: 20-25 minutes.\",\n  \"Ingredients\": \"• 2 cups All-Purpose Flour (Maida)\\n• ½ teaspoon Salt\\n• ½ - ¾ cup Water (as needed for kneading)\\n• 1 teaspoon Oil (for kneading, optional)\\n• 2 cups Cabbage, finely shredded or grated\\n• ½ cup Carrots, finely grated\\n• 1 medium Onion, finely chopped\\n• 1 tablespoon Ginger, grated or finely minced\\n• 1 tablespoon Garlic, finely minced\\n• 1-2 Green Chilies, finely chopped (adjust to taste)\\n• 1-2 tablespoons Soy Sauce\\n• ½ teaspoon Black Pepper powder\\n• Salt to taste\\n• 1 tablespoon Oil (for sautéing)\\n• 1 tablespoon Sesame oil (optional)\\n• 2 tablespoons Spring Onion greens, chopped (optional)\\n• ½ cup Mayonnaise (full-fat preferred)\\n• 2-3 cloves Garlic, finely minced\\n• 1 tablespoon White Vinegar or Lemon Juice\\n• ½ teaspoon Sugar (optional)\\n• ¼ teaspoon Black Pepper powder\\n• Salt to taste\\n• 1-2 tablespoons Water or Milk (to adjust consistency)\\n• A pinch of Chili flakes (optional)\",\n  \"Instructions\": \"1. Mix flour and salt in a large bowl, gradually add water, and knead into a stiff but pliable dough.\\n2. Knead the dough for 5-7 minutes until smooth; add oil if desired, then cover with a damp cloth and rest for 30 minutes.\\n3. Optional: Sprinkle salt on cabbage, let sit for 10 minutes, and squeeze out excess water.\\n4. Heat oil in a pan, sauté onion, ginger, garlic, and green chilies for 2-3 minutes until onion is translucent.\\n5. Add cabbage and carrots; cook 5-7 minutes until slightly softened but still crunchy.\\n6. Stir in soy sauce, pepper, and salt; cook 2-3 minutes until moisture evaporates. Cool completely and add spring onion greens + sesame oil if using.\\n7. Divide rested dough into marble-sized portions and roll into thin 3-4 inch circles.\\n8. Place 1 tbsp filling in the center, pleat edges, and seal tightly into desired momo shape.\\n9. Lightly grease steamer basket or line with parchment/cabbage leaves. Arrange momos with space between.\\n10. Steam for 10-12 minutes until translucent and firm to touch.\\n11. For the sauce: Mix mayonnaise, garlic, vinegar (or lemon juice), sugar, pepper, and chili flakes in a bowl until smooth.\\n12. Gradually add water or milk to adjust consistency. Taste and adjust seasoning as needed.\",\n  \"Tips\": \"• Add a pinch of baking powder to the dough for extra softness.\\n• Experiment with bell peppers, mushrooms, paneer, or tofu in the filling.\\n• Line the steamer with parchment or cabbage leaves to prevent sticking.\\n• Leftover momos can be pan-fried or deep-fried for a crispy twist.\\n• The white sauce can be stored in the refrigerator for 3-4 days in an airtight container.\"\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        464,
+        224
+      ],
+      "id": "54358880-3c13-4a43-9ad3-f50374da031d",
+      "name": "Structured Output Parser"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Create a record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "33bae84e-c0ff-4f0a-9887-506e972b59ff",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "1e8bf93c393d2fd2b102938e39b35d26d5f6df15c7193642187723a6f7808d93"
+  },
+  "id": "0ud6HxzuduBeWrEc",
+  "tags": []
+}
