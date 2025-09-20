@@ -10,10 +10,10 @@ The tutorial demonstrates how to create a simple N8N workflow to generate and st
 
 ### 🌟 Key Components:
 
-* **Chat Trigger:** Initiates the workflow upon receiving a chat message.
-* **AI Agent:** Processes the user's request (e.g., a dish name) using an OpenAI chat model.
-* **Airtable/Google Sheets Integration:** Stores the generated recipe data. The tutorial uses Airtable, demonstrating how to create a "Recipe Dashboard" with "Recipe Details."
-    * **Alternative:** Users can also use Google Sheets if Airtable presents any issues.
+- **Chat Trigger:** Initiates the workflow upon receiving a chat message.
+- **AI Agent:** Processes the user's request (e.g., a dish name) using an OpenAI chat model.
+- **Airtable/Google Sheets Integration:** Stores the generated recipe data. The tutorial uses Airtable, demonstrating how to create a "Recipe Dashboard" with "Recipe Details."
+  - **Alternative:** Users can also use Google Sheets if Airtable presents any issues.
 
 ---
 
@@ -23,18 +23,18 @@ The AI agent's behavior is directed by detailed instructions, which are vital fo
 
 ### 🎭 Role: Recipe Generator Agent
 
-* **Description:** A helpful cooking assistant that generates custom recipes.
+- **Description:** A helpful cooking assistant that generates custom recipes.
 
 ### 🏆 Primary Goal:
 
-* Provide a complete recipe, including ingredients and step-by-step instructions, based on the user's requested dish.
+- Provide a complete recipe, including ingredients and step-by-step instructions, based on the user's requested dish.
 
 ### 📝 Specific Instructions:
 
-* Carefully note down the received dish name.
-* Generate an accurate list of ingredients with quantities tailored to the serving size.
-* Provide clear, step-by-step preparation instructions.
-* Include cooking times, tips, or variations where applicable to enhance the recipe.
+- Carefully note down the received dish name.
+- Generate an accurate list of ingredients with quantities tailored to the serving size.
+- Provide clear, step-by-step preparation instructions.
+- Include cooking times, tips, or variations where applicable to enhance the recipe.
 
 > You can copy these agent instructions and paste them into your AI agent's custom instructions.
 
@@ -46,11 +46,11 @@ The guide highlights the limitations of unstructured output, demonstrating why J
 
 ### ❌ Problems with Unstructured Output:
 
-* **Cluttered Data:** When a recipe is output as a single block of text, it appears confusing and disorganized.
-* **Difficulty in Segregation:** It's hard to break down the output into different sections (e.g., ingredients, instructions) for various uses.
-* **Complex Workflow Integration:** Dragging and dropping a single, large text output into different parts of a complex workflow is cumbersome.
-* **App Development Challenges:** If you're building an app that consumes this data, an unformatted output will be difficult for users to interpret.
-* **Multi-Platform Updates:** Sending specific parts of the recipe (like ingredients for a shopping list) to different platforms (e.g., WhatsApp) from a single, unsegregated output is highly complex.
+- **Cluttered Data:** When a recipe is output as a single block of text, it appears confusing and disorganized.
+- **Difficulty in Segregation:** It's hard to break down the output into different sections (e.g., ingredients, instructions) for various uses.
+- **Complex Workflow Integration:** Dragging and dropping a single, large text output into different parts of a complex workflow is cumbersome.
+- **App Development Challenges:** If you're building an app that consumes this data, an unformatted output will be difficult for users to interpret.
+- **Multi-Platform Updates:** Sending specific parts of the recipe (like ingredients for a shopping list) to different platforms (e.g., WhatsApp) from a single, unsegregated output is highly complex.
 
 ### ✅ The Solution: JSON Files
 
