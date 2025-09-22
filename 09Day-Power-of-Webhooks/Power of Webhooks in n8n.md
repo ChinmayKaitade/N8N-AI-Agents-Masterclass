@@ -2,7 +2,7 @@
 
 ## 🔗 **Understanding Webhooks**
 
-- **Concept:** The video explains webhooks using a simple chat app analogy. A webhook is the bridge that carries data from the front-end app (Lovable) to the backend (n8n) and sends the response back.
+- **Concept:** The project explains webhooks using a simple chat app analogy. A webhook is the bridge that carries data from the front-end app (Lovable) to the backend (n8n) and sends the response back.
 - **My take:** This is a fantastic way to offload heavy processing tasks to a dedicated backend system without building complex infrastructure from scratch. It's a powerful concept for creating dynamic, data-driven applications.
 
 ## ⚙️ **Setting Up the Workflow in n8n**
@@ -18,7 +18,7 @@
 
 ## 🤔 **Troubleshooting and Tips**
 
-- The video highlights common issues, such as ensuring the app correctly handles the webhook's response. It's all about making sure the data flows smoothly between all the components.
+- The project highlights common issues, such as ensuring the app correctly handles the webhook's response. It's all about making sure the data flows smoothly between all the components.
 
 **Final thought:** This workflow is a game-changer for anyone looking to build powerful, AI-driven applications without getting bogged down in extensive coding. It's a perfect example of how modern tools can be combined to achieve incredible results! 🎉
 
