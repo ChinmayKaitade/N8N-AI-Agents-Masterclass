@@ -1,0 +1,152 @@
+{
+  "name": "MCP Client",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -384,
+        0
+      ],
+      "id": "d4b8d34e-cff3-4b7d-b26c-e2ac28ded708",
+      "name": "When chat message received",
+      "webhookId": "961e1eb5-7f73-444e-9b71-ec7fbc39a5ec"
+    },
+    {
+      "parameters": {
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=You are a helpful assistant which helps sending mails and checking schedule. You will call the MCP Client tool whenever user asks to send a mail or get the latest emails. Also you will call the calender tool if the agent asks for any event details.\n\n{{ $today }}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -176,
+        0
+      ],
+      "id": "7af2b09c-57e1-48e7-bca6-65e75cd8a291",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        208
+      ],
+      "id": "ea09356b-ee49-4383-b317-31c9949679fd",
+      "name": "MCP and n8n Installation",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "tMG7XfGvu6nuuFgY",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -176,
+        208
+      ],
+      "id": "f790b5b8-cecd-4337-88d5-c1a37554f399",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "endpointUrl": "https://dhruuvvv06.app.n8n.cloud/mcp/df4191ae-9e07-459a-9b04-a0566d0424eb",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        224
+      ],
+      "id": "d2012be5-d03b-42ac-b361-a79ee155d0d0",
+      "name": "Gmail MCP"
+    },
+    {
+      "parameters": {
+        "content": "### MCP Client\n",
+        "height": 400,
+        "width": 704
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -496,
+        -48
+      ],
+      "id": "7459df2b-d539-4bc9-9652-8068f0c13b02",
+      "name": "Sticky Note"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MCP and n8n Installation": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail MCP": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "e756fa73-4f17-4871-b599-b7b7ed715aa6",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "26b8fa61f795fc7b8cb50c9f872ef9e96862810488044635ee78b5d60dc3d077"
+  },
+  "id": "6oz13S6pteE5XQz8",
+  "tags": []
+}
