@@ -1,0 +1,313 @@
+{
+  "name": "Instagram Lead Scrapper Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "### Who are you looking for?\n",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -608,
+        0
+      ],
+      "id": "bab62b6e-32dd-437d-ba98-2b6ce4f2e33f",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "### Searching\n",
+        "height": 192,
+        "width": 256,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -288,
+        0
+      ],
+      "id": "ab9a23cf-343e-45e6-9d0c-63a5875ddf7e",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "### Gather Results\n",
+        "height": 192,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        48,
+        0
+      ],
+      "id": "0c2aa2d8-5d1e-4f0c-810f-5e909655c17c",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "### Structure Output\n\n",
+        "height": 192,
+        "width": 272,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        336,
+        0
+      ],
+      "id": "aefca2c3-d173-42ae-abf0-04cafcebea7c",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "### Store Results\n",
+        "height": 192,
+        "width": 272,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        672,
+        0
+      ],
+      "id": "2c09f212-7f91-476d-8f30-278c278c9b1c",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "formTitle": "Instagram Lead Scrapper",
+        "formDescription": "Get all the leads from Instagram to Airtable",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Who are you looking for?"
+            },
+            {
+              "fieldLabel": "Location"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.3,
+      "position": [
+        -544,
+        48
+      ],
+      "id": "b6fd8625-a862-463a-bcdb-789ea981304c",
+      "name": "On form submission",
+      "webhookId": "9a238f39-7bae-47c3-b91d-b7a7640d87ef"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/apify~google-search-scraper/run-sync-get-dataset-items?token=YOUR-API-KEY",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"focusOnPaidAds\": false,\n    \"forceExactMatch\": false,\n    \"includeIcons\": false,\n    \"includeUnfilteredResults\": false,\n    \"maxPagesPerQuery\": 1,\n    \"maximumLeadsEnrichmentRecords\": 0,\n    \"mobileResults\": false,\n    \"queries\": \"site:instagram.com + {{ $json['Who are you looking for?'] }} {{ $json.Location }}\",\n    \"resultsPerPage\": 100,\n    \"saveHtml\": false,\n    \"saveHtmlToKeyValueStore\": true\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -208,
+        48
+      ],
+      "id": "1b80594f-cf07-421b-b4d1-2bd3c4d6c375",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        112,
+        48
+      ],
+      "id": "86bde624-c095-4aaf-886a-50afb524b639",
+      "name": "Wait",
+      "webhookId": "56ee97c1-688e-4432-9b90-273dd552789f"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Helper function to parse follower counts like \"22.7K\", \"1.2M\", etc.\nconst parseFollowers = (raw) => {\n  if (!raw || typeof raw !== 'string') return null;\n\n  const clean = raw.trim().toUpperCase();\n  const match = clean.match(/([\\d.,]+)\\s*([KMB]?)/);\n\n  if (!match) return null;\n\n  let number = parseFloat(match[1].replace(',', ''));\n  const multiplier = match[2];\n\n  if (isNaN(number)) return null;\n\n  switch (multiplier) {\n    case 'K': return Math.round(number * 1000);\n    case 'M': return Math.round(number * 1000000);\n    case 'B': return Math.round(number * 1000000000);\n    default: return Math.round(number);\n  }\n};\n\n// Main processing\nconst creators = $json[\"organicResults\"];\n\nreturn creators.map((creator) => {\n  const titleSplit = creator.title.split(\"(@\");\n  const name = titleSplit[0]?.trim() || \"Unknown\";\n  const handle = titleSplit[1]?.split(\")\")[0] || \"\";\n\n  const rawFollowers = creator.followersAmount || \"\";\n  const cleanFollowers = parseFollowers(rawFollowers);\n\n  return {\n    json: {\n      Name: name,\n      InstagramHandle: handle,\n      ProfileURL: creator.url || \"\",\n      Description: creator.description || \"\",\n      Followers: cleanFollowers,\n      ChannelName: creator.channelName || \"\",\n      PostType: creator.type || \"\",\n      Position: creator.position || null,\n    }\n  };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        416,
+        48
+      ],
+      "id": "958d80f3-ed6f-45cf-afc7-42c41ff43782",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "apprBdCaKYFe4P9P6",
+          "mode": "list",
+          "cachedResultName": "Instagram Lead Scrapper Agent",
+          "cachedResultUrl": "https://airtable.com/apprBdCaKYFe4P9P6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblVfYcUyjAkJCg3S",
+          "mode": "list",
+          "cachedResultName": "Models",
+          "cachedResultUrl": "https://airtable.com/apprBdCaKYFe4P9P6/tblVfYcUyjAkJCg3S"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ $json.Name }}",
+            "Username": "={{ $json.InstagramHandle }}",
+            "Handle": "={{ $json.ProfileURL }}",
+            "Description": "={{ $json.Description }}",
+            "Followers": "={{ $json.Followers }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Username",
+              "displayName": "Username",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Handle",
+              "displayName": "Handle",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Followers",
+              "displayName": "Followers",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        736,
+        48
+      ],
+      "id": "ea05d895-7517-4ddc-b945-b51108178c21",
+      "name": "Create a record",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "WekAT8uEdoYmis6r",
+          "name": "Instagram Lead Scrapper Agent"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Create a record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "7376758b-785d-4480-989d-07cb1235a975",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "26b8fa61f795fc7b8cb50c9f872ef9e96862810488044635ee78b5d60dc3d077"
+  },
+  "id": "5plvYghyptEakCTZ",
+  "tags": []
+}
