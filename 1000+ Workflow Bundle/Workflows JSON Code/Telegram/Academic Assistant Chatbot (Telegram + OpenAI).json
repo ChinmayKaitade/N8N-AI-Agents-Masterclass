@@ -1,0 +1,129 @@
+{
+  "name": "Academic Assistant Chatbot (Telegram + OpenAI)",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "id": "20a2d959-5412-447b-a2c4-7736b6b758b3",
+      "name": "Telegram Trigger",
+      "position": [
+        256,
+        208
+      ],
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.1,
+      "webhookId": "5757ba5b-b427-4af8-a23b-7527a0f01ae8"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "8b30f207-8204-4548-8f51-38c387d98ae9",
+      "name": "OpenAI Chat Model",
+      "position": [
+        656,
+        208
+      ],
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "credentials": {
+        "openAiApi": {
+          "id": "YOUR_OPENAI_CREDENTIAL_ID_HERE",
+          "name": "OpenAI Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Telegram Trigger').item.json.message.text }}",
+        "options": {
+          "systemMessage": "You are a helpful and knowledgeable AI academic assistant. Your goal is to assist students with their assignments, studies, and general academic inquiries. Provide explanations, study tips, help with research, clarify concepts, and offer guidance on academic tasks. Be encouraging, precise, and polite. Always ensure your responses are relevant to academic support."
+        }
+      },
+      "id": "68303b67-2203-41e8-b370-220d884d2945",
+      "name": "Academic Assistant AI Agent",
+      "position": [
+        912,
+        208
+      ],
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $('Academic Assistant AI Agent').item.json.output }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "id": "15bb5fd5-7dfe-4da9-830c-e1d905831640",
+      "name": "Send Telegram Response",
+      "position": [
+        1152,
+        208
+      ],
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "webhookId": "afcc418d-4723-4f60-a577-c5f3bd7a309e",
+      "credentials": {
+        "telegramApi": {
+          "id": "YOUR_TELEGRAM_CREDENTIAL_ID_HERE",
+          "name": "Telegram Account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Academic Assistant AI Agent",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "index": 0,
+            "node": "Academic Assistant AI Agent",
+            "type": "ai_languageModel"
+          }
+        ]
+      ]
+    },
+    "Academic Assistant AI Agent": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Send Telegram Response",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/New_York"
+  },
+  "versionId": "dd7c6e21-87a4-4e15-9662-72e4c63e9da3",
+  "meta": {
+    "instanceId": "4962941a77c4da44bac1703396b7ae8536094a036af2f87ba8600ee9720e2d9e"
+  },
+  "id": "K0TLA1k7P0hL2Ysg",
+  "tags": []
+}
