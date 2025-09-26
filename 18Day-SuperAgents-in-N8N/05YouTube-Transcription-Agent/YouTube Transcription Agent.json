@@ -1,0 +1,598 @@
+{
+  "name": "YouTube Transcription Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        284
+      ],
+      "id": "0a86663f-8f36-4897-8955-63132276db6c",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1U01n6W-3Ygx3NuOwbqmcKEn4YOPkSMCkNHjvPl9OnLE",
+          "mode": "list",
+          "cachedResultName": "YouTube Transcription Agent",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1U01n6W-3Ygx3NuOwbqmcKEn4YOPkSMCkNHjvPl9OnLE/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1U01n6W-3Ygx3NuOwbqmcKEn4YOPkSMCkNHjvPl9OnLE/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "STATUS",
+              "lookupValue": "NEXT"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        224,
+        284
+      ],
+      "id": "2d1233a4-29cc-4f45-ad76-60fc8b9a405f",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Ninu2B3D9Y6LtTML",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        448,
+        284
+      ],
+      "id": "e99d9b5b-aadf-475a-874d-993844b5f8bf",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  const videoLink = item.json[\"Video Link\"];\n  const match = videoLink.match(/(?:v=|\\/)([0-9A-Za-z_-]{11})/);\n\n  const videoId = match ? match[1] : null;\n\n  return {\n    json: {\n      \"Video Link\": videoLink,\n      \"video_id\": videoId\n    }\n  };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        896,
+        544
+      ],
+      "id": "f396ae77-a86f-4bd6-94d8-e8d6e38423d9",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = items[0]?.json?.data?.transcripts;\n\nif (!data || typeof data !== \"object\") {\n  throw new Error(\"Transcript data not found in API response.\");\n}\n\n// get first available language key\nconst firstLangKey = Object.keys(data)[0]; \nconst transcriptChunks = data[firstLangKey]?.custom;\n\nif (!Array.isArray(transcriptChunks)) {\n  throw new Error(\"Transcript chunks not found or not in expected format.\");\n}\n\nlet combinedText = transcriptChunks\n  .map(chunk => chunk?.text?.trim())\n  .filter(Boolean)\n  .join(\" \");\n\nreturn [\n  {\n    json: {\n      combinedTranscript: combinedText\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1568,
+        544
+      ],
+      "id": "018b698c-b237-4395-805e-bb9a0d1cacf2",
+      "name": "Combine Transcripts"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "caae4077-5831-404e-b1c0-6c4a4ad010c8",
+              "name": "data.transcripts",
+              "value": "={{ $json.data.transcripts }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1344,
+        544
+      ],
+      "id": "7ac474f3-fe42-45ec-b0b2-f8d07c16698c",
+      "name": "Extract Transcripts"
+    },
+    {
+      "parameters": {
+        "url": "https://youtube-video-summarizer-gpt-ai.p.rapidapi.com/api/v1/get-transcript-v2",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "video_id",
+              "value": "={{ $json.video_id }}"
+            },
+            {
+              "name": "platform",
+              "value": "youtube"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-rapidapi-host",
+              "value": "youtube-video-summarizer-gpt-ai.p.rapidapi.com"
+            },
+            {
+              "name": "x-rapidapi-key",
+              "value": "dd3ac24966msh5ddf813c17d423bp100888jsn974619e50e9e"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1120,
+        544
+      ],
+      "id": "b5e556de-4ed8-4c85-b5d3-47334cf2b404",
+      "name": "Get Transcripts"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.combinedTranscript }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=YOU ARE AGENT : THE WORLD’S LEADING EXPERT IN YOUTUBE VIDEO DESCRIPTIONS & SEO META TAGS\nInternationally recognized for crafting high-converting, algorithm-optimized YouTube video descriptions, your job is to turn summarized transcripts or video content into descriptions that boost discoverability, increase CTR, and keep viewers engaged. You also generate relevant SEO meta tags and hashtags that help the video rank better in search.\n\n✅ INSTRUCTIONS\nUse a compelling hook in the first 1–2 lines — this is what appears above the fold and needs to grab attention immediately.\n\nSummarize the video content clearly and naturally in 3–6 sentences — keep it audience-friendly and informative.\n\nInclude CTA lines like “Subscribe,” “Watch next,” “Join the community,” etc.\n\nInclude 2 blocks at the end:\n\nSEO Meta Tags (comma-separated keywords)\n\nHashtags (in YouTube-friendly format)\n\n🧠 CHAIN OF THOUGHTS\nANALYZE THE VIDEO SUMMARY OR TRANSCRIPT\n\nUnderstand the topic, tone, and value for the viewer.\n\nIdentify keywords and content highlights.\n\nCRAFT A DESCRIPTION\n\nHook first: a powerful sentence or relatable question.\n\nOverview: what the viewer will learn or gain.\n\nContent breakdown: any notable moments or segments.\n\nEngagement prompts: ask for likes, subs, or comments.\n\nSEO OPTIMIZATION\n\nUse relevant, high-ranking keywords naturally.\n\nCreate a separate list of tags to improve search indexing.\n\nInclude niche-specific hashtags and trends.\n\nFORMAT FOR YOUTUBE\n\nMake sure the first 2 lines are click-worthy.\n\nUse line breaks to improve readability.\n\nPlace SEO tags at the end, not in the main paragraph.\n\n❌ WHAT NOT TO DO\nDon’t start with boring or vague intros like “In this video…”\n\nDon’t skip SEO tags, hashtags, or CTAs.\n\nDon’t stuff keywords unnaturally — keep it human-readable.\n\nDon’t write bulky, unstructured paragraphs.\n\nDon’t reuse the same description format every time — customize!\n\n💡 FEW-SHOT EXAMPLE\n🎥 Input Summary:\n\"A 10-minute video explaining how to use ChatGPT with Airtable and automate workflows using N8N. It includes a live demo, error handling tips, and integration examples for business use.\"\n\n📄 Output Description:\nWant to automate your business using ChatGPT? This video shows you EXACTLY how to do it — step-by-step! 💡\n\nIn this quick tutorial, you'll learn how to:\n\nConnect ChatGPT to Airtable\n\nAutomate workflows using N8N\n\nHandle errors like a pro\n\nUse real business case examples to scale your productivity\n\n📌 Whether you're a no-code beginner or a workflow wizard, this guide breaks it down in a simple, clear way. Watch till the end for advanced bonus tips!\n\n👍 Like, Share, and Subscribe for weekly AI and automation hacks.\n🔔 Turn on the bell to stay ahead of the game.\n\n🔍 SEO Tags:\nchatgpt automation, n8n tutorial, airtable workflow, ai business tools, openai automation, no code automations, chatgpt n8n integration\n\n#️⃣ Hashtags:\n#ChatGPT #Airtable #N8N #AutomationTutorial #NoCodeAI #WorkflowHacks\n\nWhatever the language of the transcription is I want you to give me the description in English only"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        1792,
+        544
+      ],
+      "id": "cce91675-f8de-4093-807d-608a764cedef",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        1760,
+        704
+      ],
+      "id": "ce294997-202c-4c2d-8ea7-7beab1b90942",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "tMG7XfGvu6nuuFgY",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.text }}\n\nYou're the world's best youtube title creator. I want you to give me 10 different titles extremly wild worthy titles for the given description of the video.\nSee towards it that you include almost everything in your title like shock, fear, excitment, etc. also make it attractive using emojis.",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        2368,
+        544
+      ],
+      "id": "64229e6b-bd73-4d71-839e-d32fc4886756",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        2320,
+        720
+      ],
+      "id": "1889f5f4-9a00-4a64-8363-34aa6d188416",
+      "name": "Google Gemini Chat Model1",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "tMG7XfGvu6nuuFgY",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get response text\nlet rawText = items[0].json.text;\n\n// Replace \\n with space and clean extra spaces\nlet cleanedText = rawText.replace(/\\n+/g, ' ').replace(/\\s+/g, ' ').trim();\n\nreturn [\n  {\n    json: {\n      text: cleanedText\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2144,
+        544
+      ],
+      "id": "4c07081d-c21d-4c76-896a-c02aea12b8f8",
+      "name": "Manage1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// This script takes a raw string input and formats it into a JSON array of titles,\n// preserving the numbering and bold formatting as shown in the desired output.\n\n// Get the full text output from the previous node.\nconst inputString = $input.first().json.output;\n\n// 1. Isolate the list of titles by finding the position after the introductory text.\n// This is a robust method to handle different introductory paragraphs.\nconst titlesStartMarker = \"youtube titles for your video:\\\\n\\\\n\";\nlet titlesSection = \"\";\n\nconst titlesStartIndex = inputString.indexOf(titlesStartMarker);\nif (titlesStartIndex !== -1) {\n    titlesSection = inputString.substring(titlesStartIndex + titlesStartMarker.length);\n} else {\n    // Fallback: If the marker is not found, assume the entire input is the list.\n    titlesSection = inputString;\n}\n\n// 2. Split the section into individual titles using the escaped newline character, '\\\\n', as a separator.\nconst rawTitles = titlesSection.split('\\\\n');\n\n// Filter out any empty strings and ensure we only process the first 10 titles, as is the standard for this type of input.\nconst listItems = rawTitles.filter(line => line.trim().length > 0).slice(0, 10);\n\nconst formattedTitlesArray = [];\n\nfor (const line of listItems) {\n    // 3. Keep the line as-is, ensuring it's properly trimmed.\n    let formattedTitle = line.trim();\n\n    // The raw string from the AI output might contain trailing quotes from the JSON string.\n    // We remove them if they exist to keep the titles clean.\n    formattedTitle = formattedTitle.replace(/\\s*,\\s*\"|\"\\s*$/g, '');\n    \n    // Add the formatted title to the final array.\n    formattedTitlesArray.push(formattedTitle);\n}\n\n// 4. Return a single output item that contains the final desired JSON structure,\n//    which is an array of the formatted titles.\nreturn [{\n    titles: formattedTitlesArray\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2720,
+        544
+      ],
+      "id": "a5339a40-bdeb-43b4-8cd3-c4c97f9e0cd6",
+      "name": "Manage2"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1U01n6W-3Ygx3NuOwbqmcKEn4YOPkSMCkNHjvPl9OnLE",
+          "mode": "list",
+          "cachedResultName": "YouTube Transcription Agent",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1U01n6W-3Ygx3NuOwbqmcKEn4YOPkSMCkNHjvPl9OnLE/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1U01n6W-3Ygx3NuOwbqmcKEn4YOPkSMCkNHjvPl9OnLE/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "STATUS": "DONE",
+            "Description": "={{ $('Manage1').item.json.text }}",
+            "Title Ideas": "={{ $json.titles }}",
+            "Video Link": "={{ $('Extract Link').item.json['Video Link'] }}"
+          },
+          "matchingColumns": [
+            "Video Link"
+          ],
+          "schema": [
+            {
+              "id": "Video Link",
+              "displayName": "Video Link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "STATUS",
+              "displayName": "STATUS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Title Ideas",
+              "displayName": "Title Ideas",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2944,
+        672
+      ],
+      "id": "378508f3-ed10-42fb-a846-409b5c454829",
+      "name": "Update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Ninu2B3D9Y6LtTML",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "01bd629e-ba43-47c6-9024-834cb543f21b",
+              "name": "Video Link",
+              "value": "={{ $json['Video Link'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        688,
+        544
+      ],
+      "id": "ce1d4dde-b54e-4e99-a3e7-6682a5a65936",
+      "name": "Extract Link"
+    },
+    {
+      "parameters": {
+        "sendTo": "chinmaykaitade1806@gmail.com",
+        "subject": "Your Subject Material is Ready Enjoy!",
+        "emailType": "text",
+        "message": "={{ $('Manage1').item.json.text }}\n\nTitle:\n{{ $json.titles }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        2944,
+        352
+      ],
+      "id": "8cbe6cd9-4869-404a-9590-b6d1c8bc4b30",
+      "name": "Send a message",
+      "webhookId": "a765411f-c119-49a6-ade4-5d45488ff406",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "QoDdzaiHib25OSml",
+          "name": "MCP Server Trial"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Extract Link",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Get Transcripts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Transcripts": {
+      "main": [
+        [
+          {
+            "node": "Combine Transcripts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Transcripts": {
+      "main": [
+        [
+          {
+            "node": "Extract Transcripts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Combine Transcripts": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        [
+          {
+            "node": "Manage1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Manage2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Manage1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Manage2": {
+      "main": [
+        [
+          {
+            "node": "Update row in sheet",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Link": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "ecefedaa-c7d8-4f10-b41b-387bc1f72889",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "26b8fa61f795fc7b8cb50c9f872ef9e96862810488044635ee78b5d60dc3d077"
+  },
+  "id": "CxXrzLxP6WPIj2do",
+  "tags": []
+}
