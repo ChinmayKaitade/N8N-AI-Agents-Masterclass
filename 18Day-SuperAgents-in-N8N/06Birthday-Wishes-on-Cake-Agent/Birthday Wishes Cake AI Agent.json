@@ -1,0 +1,280 @@
+{
+  "name": "Birthday Wishes Cake AI Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "### INPUT",
+        "height": 416,
+        "width": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -928,
+        -48
+      ],
+      "id": "52e9cbb9-6d9b-4656-8724-f87d94d62961",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "### Cake Name Prompt\n",
+        "height": 416,
+        "width": 464,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -640,
+        -48
+      ],
+      "id": "261826be-17f2-4000-a189-5cd5fdeb57b2",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "### Only Name Code\n",
+        "height": 304,
+        "width": 224,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        480
+      ],
+      "id": "4779cc75-6b0f-49b5-87fe-1d7931c23ed3",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "### Create Code\n",
+        "height": 416,
+        "width": 224,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        -48
+      ],
+      "id": "d933e6d9-4292-4fb8-b0e0-abc49e3e1fad",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "### Create a Binary File",
+        "height": 416,
+        "width": 224,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        240,
+        -48
+      ],
+      "id": "cec73387-3ecf-43d2-897f-0ffe36f2207e",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "### OUTPUT",
+        "height": 416,
+        "width": 224
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        560,
+        -48
+      ],
+      "id": "47486a32-cada-4737-8c7e-8e27d9240a2b",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are an expert in creating cake prompts.\nI want very simple cake prompts but more elegant and cinematic.\n\nI want you to mention to put {{ $json['Enter Your Name'] }} On the cake without any \"\" marks\n\nAlso give me just the plain text of the prompt don't give me anything apart from it keep the prompt in a single line\n\nThe name should be engraved on the cake\nMake the cake look as cinematic as possible\n\nEG : \"black forest gateau cake spelling out the words \\\"FLUX SCHNELL\\\", tasty, food photography, dynamic shot\"",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -512,
+        64
+      ],
+      "id": "0cda5e18-ec17-44b8-a245-1fd8fd3c188a",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -576,
+        224
+      ],
+      "id": "7c855d8f-6428-4291-a35f-a037912f6499",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "tMG7XfGvu6nuuFgY",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.output }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-type",
+              "value": "image/webp"
+            },
+            {
+              "name": "Content-Disposition",
+              "value": "inline;filename=\"preview.webp\""
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -16,
+        64
+      ],
+      "id": "e8ad1b3e-d88d-4817-8993-9f26543a25dc",
+      "name": "Create Cake"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.output[0] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        304,
+        64
+      ],
+      "id": "ca419434-7e6a-4b44-80c4-50c86bef9799",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "f6a6f04b-8ec9-4849-8447-bd622e339c5f",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -880,
+        64
+      ],
+      "id": "ed280b0b-58c4-45cb-814e-8c82ac8cb861",
+      "name": "Webhook",
+      "webhookId": "f6a6f04b-8ec9-4849-8447-bd622e339c5f"
+    },
+    {
+      "parameters": {
+        "respondWith": "binary",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        624,
+        64
+      ],
+      "id": "40130e08-44d8-442d-9069-180b50e59861",
+      "name": "Respond to Webhook"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Create Cake",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Cake": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "3b1874ae-c81f-4bc2-bc20-3d174f754e68",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "26b8fa61f795fc7b8cb50c9f872ef9e96862810488044635ee78b5d60dc3d077"
+  },
+  "id": "28GqFZJWEhoGZlxO",
+  "tags": []
+}
