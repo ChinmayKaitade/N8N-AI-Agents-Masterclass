@@ -1,0 +1,658 @@
+{
+  "name": "Cheapest VEO3 AI Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Video Creator",
+        "formDescription": "The Most Dynamic Stock Video Creator",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Person in Video",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Man"
+                  },
+                  {
+                    "option": "Women"
+                  }
+                ]
+              },
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Action",
+              "placeholder": "Running, Sitting, Walking, etc.",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Location",
+              "placeholder": "Gym, Hospital, Space, etc.",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Nationality",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Indian"
+                  },
+                  {
+                    "option": "African"
+                  },
+                  {
+                    "option": "American"
+                  },
+                  {
+                    "option": "Brazilan"
+                  },
+                  {
+                    "option": "Chinese"
+                  },
+                  {
+                    "option": "Japanese"
+                  },
+                  {
+                    "option": "Thai"
+                  }
+                ]
+              },
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Extra Details"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.3,
+      "position": [
+        -608,
+        16
+      ],
+      "id": "40004aec-1cbe-4141-a139-5b407506be86",
+      "name": "On form submission",
+      "webhookId": "5b383bf4-b2f4-4f03-a46b-f8e819b08e29"
+    },
+    {
+      "parameters": {
+        "content": "### Phase 1- Prompt Creation",
+        "height": 416,
+        "width": 352
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -448,
+        -80
+      ],
+      "id": "d95fdfad-f093-457f-82ac-fc2607edea42",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -400,
+        192
+      ],
+      "id": "49b66d38-2b4c-4ad0-aeac-8b4bbe9c1c1f",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "tMG7XfGvu6nuuFgY",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json['Person in Video'] }}{{ $json.Action }}{{ $json.Location }}{{ $json.Nationality }}{{ $json['Extra Details'] }}$json.submittedAt{{ $json.formMode }}",
+        "options": {
+          "systemMessage": "=You are a Most versatile prompt generator.\nI want you to generate prompts without any dialouges.\nSo basically you are a prompt generator who will generate prompt for this stock video style videos.\n\nThe person in the video will be {{ $json['Person in Video'] }}\n\nThe action that person will be doing is {{ $json.Action }}\n \nThe specific location will be {{ $json.Location }}\n \nAnd the nationality of the person will be {{ $json.Nationality }}\n\nSome extra details here {{ $json['Extra Details'] }}\n \nBased on this I want you to generate a prompt for me not too complicated but at least two 3 line prompt for an AI to understand in the most simplest way.\n \nSee towards it that in the prompt you don't mention anything with people talking or anything that is related to voice. I want you to generate prompt only for this stockt video style videos.\n \ngive me just the plain text of the prompt"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -368,
+        16
+      ],
+      "id": "e75cce9a-8a9e-49d3-833b-1ad465fc4d86",
+      "name": "Generate Prompt"
+    },
+    {
+      "parameters": {
+        "resource": "video",
+        "modelId": {
+          "__rl": true,
+          "value": "models/veo-3.0-generate-preview",
+          "mode": "list",
+          "cachedResultName": "models/veo-3.0-generate-preview"
+        },
+        "prompt": "={{ $json.output }}",
+        "options": {
+          "aspectRatio": "9:16"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1,
+      "position": [
+        32,
+        16
+      ],
+      "id": "df171b10-85bf-4500-8a4f-30182e5ed028",
+      "name": "Video Creation",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "tMG7XfGvu6nuuFgY",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 100
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        240,
+        16
+      ],
+      "id": "154fb996-e980-4953-a678-b4d91243ea48",
+      "name": "Wait",
+      "webhookId": "fa2d5eea-ffe1-4555-8799-f800613add68"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        448,
+        16
+      ],
+      "id": "31b46feb-c42e-427c-a30d-1b0fe3a708dd",
+      "name": "Retrieve Video"
+    },
+    {
+      "parameters": {
+        "content": "### Phase 2 - Video Creation",
+        "height": 208,
+        "width": 848,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -32,
+        -32
+      ],
+      "id": "f191c0e5-da64-4bb6-ba0e-49bf7f9371ea",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        656,
+        16
+      ],
+      "id": "7473d0fa-0c17-4104-ba49-97be16104634",
+      "name": "Convert to Binary"
+    },
+    {
+      "parameters": {
+        "content": "### Phase 3 - Analyze Video",
+        "height": 576,
+        "width": 928,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        880,
+        -32
+      ],
+      "id": "a5cc75d9-0ce7-4b7d-9279-76fb300c0d86",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "### Phase 4 - Audio Prompt\n",
+        "height": 448,
+        "width": 608,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1904,
+        -32
+      ],
+      "id": "2920e663-9676-4085-b454-6d639d645ded",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "### Phase 5 - Video Generation with Audio",
+        "height": 320,
+        "width": 464,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2576,
+        -32
+      ],
+      "id": "57ec7a41-72db-4207-8852-26907b0e09ba",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/upload/v1beta/files?key=AIzaSyC3Btm-8p3Y8veF85h-Vxjdd-Y4kksN1W0",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Goog-Upload-Command",
+              "value": "start, upload, finalize"
+            },
+            {
+              "name": "X-Goog-Upload-Header-Content-Length",
+              "value": "={{ $json['Upload video'][0].size }}"
+            },
+            {
+              "name": "X-Goog-Upload-Header-Content-Type",
+              "value": "video/mp4"
+            },
+            {
+              "name": "Content-Type",
+              "value": "video/mp4"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "binaryData",
+        "inputDataFieldName": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        944,
+        112
+      ],
+      "id": "4d383935-8511-4d50-99e8-b4015da93ae9",
+      "name": "Create File"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=AIzaSyC3Btm-8p3Y8veF85h-Vxjdd-Y4kksN1W0",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"contents\": [\n    {\n      \"role\": \"user\",\n      \"parts\": [\n        {\n          \"fileData\": {\n            \"fileUri\": \"{{ $json.file.uri }}\",\n            \"mimeType\": \"{{ $json.file.mimeType }}\"\n          }\n        },\n        {\n          \"text\": \"Describe what's going on in the video in great detail. Describe the entire video.\"\n        }\n      ]\n    }\n  ]\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1312,
+        112
+      ],
+      "id": "6066068b-ed84-49b8-963d-4618a81eab3f",
+      "name": "Analyze Video",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8aa9a851-4fe7-444f-942b-a8025a637fa5",
+              "name": "",
+              "value": "={{ $json.candidates[0].content.parts[0].text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1552,
+        96
+      ],
+      "id": "174571e2-8245-44ab-a35a-2feb90251ae0",
+      "name": "Get Description"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1552,
+        304
+      ],
+      "id": "71aa85cf-3287-4a6c-af67-569a9e15bec0",
+      "name": "Error",
+      "webhookId": "1f4820ec-ee2d-48e5-b606-7baf83969358"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1104,
+        112
+      ],
+      "id": "9767c068-7feb-4d05-bc2d-cce5eddc6ced",
+      "name": "Wait1",
+      "webhookId": "df00eb40-1be1-4fe6-b6c7-04f5e127578f"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json['Description'] }}",
+        "options": {
+          "systemMessage": "=You are the SFX and Audio prompt generator.\nBased on the given {{ $json['Description '] }}\nI want you to give me the audio details\n\nexample :\ncaption : Plastic Debris Handling\n\ncot : Begin with the sound of hands scooping up loose plastic debris, followed by the subtle cascading noise as the pieces fall and scatter back down. Include soft crinkling and rustling to emphasize the texture of the plastic. Add ambient factory background noise with distant machinery to create an industrial atmosphere.\n\nBased on the description given I want you to give me the audio details for it.\nSee towards it that you study the ambiance and then give me the audio details.\n\nGive me just the plain text\n\nDon't just write 'begin with' Study the {{ $json['Description '] }} Thoroughly and then give me the sound\n\nSee Towards the subject action and then create the sound.\n\nGive me one caption for it and one cot"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        2000,
+        96
+      ],
+      "id": "a51f3c9b-82a4-4eb0-8693-e2483cfa956f",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        1952,
+        272
+      ],
+      "id": "3fd4c07c-60ed-41dc-8e75-f4018327c093",
+      "name": "Google Gemini Chat Model1",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "tMG7XfGvu6nuuFgY",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $json[\"output\"];\n\nif (!input || typeof input !== 'string') {\n  return [\n    {\n      json: {\n        error: \"No valid 'output' field found in input.\",\n        inputReceived: input\n      }\n    }\n  ];\n}\n\n// Regex to match 'Caption:' and 'Cot:' (case-insensitive, tolerates real or escaped newlines)\nconst captionMatch = input.match(/caption:\\s*([^\\n]*)/i);\nconst cotMatch = input.match(/cot:\\s*([\\s\\S]*)/i);\n\nreturn [\n  {\n    json: {\n      caption: captionMatch ? captionMatch[1].trim() : \"\",\n      cot: cotMatch ? cotMatch[1].trim() : \"\",\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2352,
+        96
+      ],
+      "id": "56f5b87d-f2da-45d8-9cc2-c1fcb4e45eb4",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://replicate.com/zsxkib/thinksound",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2672,
+        96
+      ],
+      "id": "103dee80-2291-4ed1-b3cb-e93a7907bc00",
+      "name": "Create Audio & Video"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2880,
+        96
+      ],
+      "id": "dc861a43-aeec-4f5b-a57e-79619ae7f127",
+      "name": "Final Output"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Generate Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Generate Prompt",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Prompt": {
+      "main": [
+        [
+          {
+            "node": "Video Creation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Video Creation": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Retrieve Video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Retrieve Video": {
+      "main": [
+        [
+          {
+            "node": "Convert to Binary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to Binary": {
+      "main": [
+        [
+          {
+            "node": "Create File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create File": {
+      "main": [
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyze Video": {
+      "main": [
+        [
+          {
+            "node": "Get Description",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error": {
+      "main": [
+        [
+          {
+            "node": "Analyze Video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "Analyze Video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Description": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Create Audio & Video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Audio & Video": {
+      "main": [
+        [
+          {
+            "node": "Final Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "6d30e4a9-f9e6-4adc-84f8-0c5f67ec8ee2",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "26b8fa61f795fc7b8cb50c9f872ef9e96862810488044635ee78b5d60dc3d077"
+  },
+  "id": "6aGt1faFitGDqoz5",
+  "tags": []
+}
