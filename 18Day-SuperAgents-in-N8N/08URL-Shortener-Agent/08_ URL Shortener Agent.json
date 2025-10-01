@@ -1,0 +1,173 @@
+{
+  "name": "08: URL Shortener Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.tinyurl.com/create",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "url",
+              "value": "={{ $json.body.url }}"
+            },
+            {
+              "name": "domain",
+              "value": "tinyurl.com"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -128,
+        0
+      ],
+      "id": "a8bbe3ff-cc88-4cd4-800a-39cfaffe126f",
+      "name": "Tiny URL",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "Up0wcyu1eXJG1p8k",
+          "name": "Tiny URL API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// The input data from the previous Set node is an array of items.\n// We only expect one item containing the 'tinyUrl' key.\n\n// Access the tinyUrl from the input item's JSON data.\n// It is available as $input.item.json.tinyUrl\nconst tinyUrl = $json[\"Tiny URL\"] || \"No URL Found!😥\";\n\n// Create the desired output object\nconst output = {\n  // Use a template literal to insert the tinyUrl into the message string\n  message: `🎉Congratulations: This is your tiny URL: ${tinyUrl}`\n};\n\n// Return the new data item in an array\nreturn [output];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        288,
+        0
+      ],
+      "id": "873e328f-554c-4b39-af69-2524d7639624",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "53e98940-2dac-4ac9-8cf9-3995e56ac315",
+              "name": "Tiny URL",
+              "value": "={{ $json.data.tiny_url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        80,
+        0
+      ],
+      "id": "67ddaea2-2a76-4281-9499-2429203c201e",
+      "name": "TINY URL"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "tinyurl",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -336,
+        0
+      ],
+      "id": "cf880d28-6ce8-4b1e-aba7-0143893ea21b",
+      "name": "Webhook",
+      "webhookId": "3f54ffaf-4491-4762-aaba-a9b942fa324e"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        496,
+        0
+      ],
+      "id": "d2001d29-4663-4f3d-9fca-0dc321d755e5",
+      "name": "Respond to Webhook"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Tiny URL": {
+      "main": [
+        [
+          {
+            "node": "TINY URL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TINY URL": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Tiny URL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "a770ecb0-30e4-47ff-a642-86e4d1e2483c",
+  "meta": {
+    "instanceId": "26b8fa61f795fc7b8cb50c9f872ef9e96862810488044635ee78b5d60dc3d077"
+  },
+  "id": "woFiq5OFFaPhZ8lN",
+  "tags": []
+}
