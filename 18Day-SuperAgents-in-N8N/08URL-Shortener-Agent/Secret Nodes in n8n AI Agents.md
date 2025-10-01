@@ -34,8 +34,31 @@ The project demonstrates building a **functional URL shortener** in n8n and conn
 
 ---
 
+## 🌐 Live URL Shortener Application
+
+👉 [Dark Theme URL Shortener](https://dark-theme-url-short-vs86.bolt.host/)
+
+### 🎨 Interface Overview
+
+- The app uses a **modern dark-theme UI** with a clean and minimal design.
+- There is a **single input field** where users can paste any long URL.
+- A **shorten button** is placed next to or below the input field for triggering the process.
+- Once processed, the shortened URL is displayed clearly in a result box or section.
+- To enhance user experience, the final message appears with a **celebratory “Congratulations”** note along with the shortened link.
+
+### ⚙️ Working Process
+
+1. **User Input:** The user pastes a long URL into the input field.
+2. **Webhook Trigger:** On clicking the shorten button, the URL is sent to the **n8n Webhook node**.
+3. **API Call:** The **HTTP Request node** sends this URL to the **tinyurl.com API**.
+4. **Data Refinement:** The **Set node** isolates the shortened link from the API response.
+5. **Formatting Output:** The **Code node** wraps the shortened link inside a friendly message.
+6. **Response:** The shortened link is displayed on the website, ready to copy and share.
+
+---
+
 ## 🚀 Final Structure & Next Steps
 
-- **Workflow Order:** The complete, production-ready workflow is: **Webhook** (trigger) → **HTTP Request** (API call) → **Set** (filter data) → **Code** (format message) → **Respond to Webhook** (send result back).
-- **Result:** The final result is a custom website that shortens a long URL and displays a confetti-accompanied "Congratulations" message with the new tiny URL.
-- **Monetization Idea:** Once hosted, the URL shortener can potentially be monetized through advertising.
+- **Workflow Order:** **Webhook** → **HTTP Request** → **Set** → **Code** → **Respond to Webhook**.
+- **Result:** The live application allows users to paste any long URL and instantly receive a shortened version with a polished output message.
+- **Monetization Idea:** This can be scaled by adding features like user accounts, click analytics, or advertisements around the app.
