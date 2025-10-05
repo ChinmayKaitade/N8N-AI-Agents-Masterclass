@@ -93,6 +93,16 @@ _(Tip: Save your actual screenshots inside an `/images` folder in your repo and 
 
 ---
 
+## 🧩 n8n Workflow JSON (Import & Customize)
+
+Below is a sample **n8n workflow JSON** that integrates **Eleven Labs API**, **HTTP requests**, and **webhooks** to build your AI Voice Agent.
+
+> 💡 _You can copy this JSON and import it directly into your n8n instance using “Import from File” or “Paste JSON”._
+
+[AI Voice Agent JSON Code](./10_%20Voice%20AI%20Agent.json)
+
+---
+
 ## 🔗 My AI Voice Agent Website
 
 Check out my personal AI Voice Agent site here 👇  
