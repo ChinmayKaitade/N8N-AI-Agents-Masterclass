@@ -1,0 +1,176 @@
+{
+  "name": "Project 11: Viral Unlimited Thumbnail Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        0,
+        0
+      ],
+      "id": "e7c463c6-1312-46bf-aab3-f8fb76b45989",
+      "name": "When chat message received",
+      "webhookId": "6effa509-0050-447b-aaff-900aff7264ba"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "=Use this \"{{ $json.chatInput }}\" and give me a great viral thumbnail prompt \nand for a person in prmpt always use @chinmay \ngive me just the prompt nothing else oither than that\ndont put any emojis. \n\nmake the prompt as detailed as possible\n\neg : Capture a stunning thumbnail of @chinmay standing on a breathtaking Andaman Nicobar beach during the rainy season. He is enjoying the serene waves crashing gently in the background, with dramatic dark clouds looming in the sky, yet rays of sunlight breaking through, creating a perfect contrast. The beach is adorned with lush green palm trees swaying in the gentle breeze, and the sand is glistening wet from the recent rain. @chinmay has a joyful expression, arms outstretched as if embracing nature, wearing vibrant beach attire that pops against the moody backdrop. Include the text overlay: \"Rainy Bliss in Andaman: A First-Time Adventure!\" in bold, eye-catching font to convey excitement and attraction to viewers. The overall vibe should evoke a sense of tranquility mixed with adventure, inviting viewers to explore this unique experience.\n\nbut if you want to mention text over lay don't put \"\"\n\ndon't put commas , anywhere in the prompt "
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "03b83e04-1e78-44ae-9373-bc6680e146eb",
+      "name": "Create Prompt"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        144,
+        176
+      ],
+      "id": "a3478bf7-69e1-4aef-b931-317f35294a4d",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "tMG7XfGvu6nuuFgY",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=AIzaSyAIgpvFMMRY9Qg_x8OTzVyIXyt_7RECj1s",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"text\": \"Use this {{$json.chatInput}} and give me a great viral thumbnail prompt with @chinmay as main character. Make it cinematic no emojis no commas If you mention text overlay don't put quotes\"\n        }\n      ]\n    }\n  ]\n}\n",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        560,
+        0
+      ],
+      "id": "1d739313-facb-4120-85f1-e81aebdcaf51",
+      "name": "Create Thumbnail"
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "modelId": {
+          "__rl": true,
+          "value": "models/gemini-2.5-flash-image-preview",
+          "mode": "list",
+          "cachedResultName": "models/gemini-2.5-flash-image-preview (Nano Banana)"
+        },
+        "prompt": "={{ $json.candidates[0].content.parts[0].text }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1,
+      "position": [
+        768,
+        0
+      ],
+      "id": "5b652f1d-1f3f-499a-b665-ac5ecd3ef96d",
+      "name": "Generate an image",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "tMG7XfGvu6nuuFgY",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Create Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Create Prompt",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Prompt": {
+      "main": [
+        [
+          {
+            "node": "Create Thumbnail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Thumbnail": {
+      "main": [
+        [
+          {
+            "node": "Generate an image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate an image": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "e9ecf05e-7699-42a1-a318-ec7973b00d96",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "26b8fa61f795fc7b8cb50c9f872ef9e96862810488044635ee78b5d60dc3d077"
+  },
+  "id": "ZcpmUXVvhOtSkgWY",
+  "tags": []
+}
