@@ -71,10 +71,7 @@
       },
       "type": "n8n-nodes-base.formTrigger",
       "typeVersion": 2.3,
-      "position": [
-        -720,
-        -192
-      ],
+      "position": [-720, -192],
       "id": "9724c1b1-ee33-47b3-9e54-975ec7e75de7",
       "name": "On form submission",
       "webhookId": "f4d0757f-ba1d-408a-bd04-53022a423d2e"
@@ -88,17 +85,14 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
-      "position": [
-        -416,
-        -80
-      ],
+      "position": [-416, -80],
       "id": "dedeae68-09ad-4cc9-890e-5d0f0a066f33",
       "name": "Sticky Note"
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "=https://generativelanguage.googleapis.com/upload/v1beta/files?key=AIzaSyD2OFJ9pPkFLh974BeYVY_tsqlIDX9BCVg",
+        "url": "=https://generativelanguage.googleapis.com/upload/v1beta/files?key=YOUR-API-KEY",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -127,17 +121,14 @@
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [
-        -352,
-        16
-      ],
+      "position": [-352, 16],
       "id": "fea0c655-5eda-42fc-8e78-9b4f8c212d8e",
       "name": "Get Video"
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=AIzaSyD2OFJ9pPkFLh974BeYVY_tsqlIDX9BCVg",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=YOUR-API-KEY",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -154,10 +145,7 @@
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [
-        16,
-        16
-      ],
+      "position": [16, 16],
       "id": "d62e4cf2-e633-4984-84ea-1c1ff3ece180",
       "name": "Get Video Analysis",
       "onError": "continueErrorOutput"
@@ -166,10 +154,7 @@
       "parameters": {},
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
-      "position": [
-        -160,
-        16
-      ],
+      "position": [-160, 16],
       "id": "0b63fe69-faf3-4591-9a2c-8d1d01b86f7a",
       "name": "Wait",
       "webhookId": "abffc05f-a5a0-4fb3-973f-b722fb264254"
@@ -178,10 +163,7 @@
       "parameters": {},
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
-      "position": [
-        208,
-        144
-      ],
+      "position": [208, 144],
       "id": "e205e0de-4f3f-4a08-97da-ea8e0ebcab11",
       "name": "Wait1",
       "webhookId": "eeff505c-e967-4c8d-982d-496c78340c2a"
@@ -202,10 +184,7 @@
       },
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
-      "position": [
-        208,
-        -32
-      ],
+      "position": [208, -32],
       "id": "1d290f47-0108-4f65-8012-133deeb0912a",
       "name": "Gemini Analysis"
     },
@@ -218,10 +197,7 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
-      "position": [
-        608,
-        -80
-      ],
+      "position": [608, -80],
       "id": "9163bbde-74b8-46f6-8977-8bb6c2484d3b",
       "name": "Sticky Note1"
     },
@@ -235,10 +211,7 @@
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2.2,
-      "position": [
-        704,
-        -32
-      ],
+      "position": [704, -32],
       "id": "923b326c-b789-42fc-82d9-758f654e93f8",
       "name": "AI Agent"
     },
@@ -248,10 +221,7 @@
       },
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
-      "position": [
-        672,
-        176
-      ],
+      "position": [672, 176],
       "id": "290f391e-dfe6-43a4-9db3-8803f2aedd42",
       "name": "Google Gemini Chat Model",
       "credentials": {
@@ -267,10 +237,7 @@
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [
-        1056,
-        -32
-      ],
+      "position": [1056, -32],
       "id": "21a3cac4-e1dc-4bec-98cf-477355905943",
       "name": "Cleanup Request"
     },
@@ -280,10 +247,7 @@
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [
-        1264,
-        -32
-      ],
+      "position": [1264, -32],
       "id": "761b810c-d49f-419e-9411-4299764241cd",
       "name": "Markdown to HTML"
     },
@@ -293,10 +257,7 @@
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [
-        1472,
-        -32
-      ],
+      "position": [1472, -32],
       "id": "de0522c8-db61-44a8-adaa-84c5f06f49ba",
       "name": "Complete HTML Document Structure"
     },
@@ -306,10 +267,7 @@
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [
-        1680,
-        -32
-      ],
+      "position": [1680, -32],
       "id": "d1e99de0-4827-4c5d-87f3-d4815773e9b3",
       "name": "CSS for HTML Code"
     },
@@ -321,10 +279,7 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
-      "position": [
-        2176,
-        -80
-      ],
+      "position": [2176, -80],
       "id": "31fe049c-6b9d-4028-8c43-4162e1b64d02",
       "name": "Sticky Note2"
     },
@@ -337,7 +292,7 @@
           "parameters": [
             {
               "name": "X-API-Key",
-              "value": "sk_86e0319b0465175cddda0d0718c6f3cb6d168a0e\t"
+              "value": "YOUR-API-KEY\t"
             }
           ]
         },
@@ -369,10 +324,7 @@
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [
-        1872,
-        -32
-      ],
+      "position": [1872, -32],
       "id": "26923b17-d8dd-4e4e-84cf-beefbcf9e1e7",
       "name": "HTML to PDF"
     },
@@ -392,10 +344,7 @@
       },
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
-      "position": [
-        2224,
-        -32
-      ],
+      "position": [2224, -32],
       "id": "0d6b1661-69e8-4b3f-a6da-3da148583dc8",
       "name": "Script for Production"
     },
@@ -409,10 +358,7 @@
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2.2,
-      "position": [
-        2432,
-        -32
-      ],
+      "position": [2432, -32],
       "id": "0b259a2f-da7c-4e73-a02f-b24776d5da32",
       "name": "AI Agent1"
     },
@@ -422,10 +368,7 @@
       },
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
-      "position": [
-        2304,
-        176
-      ],
+      "position": [2304, 176],
       "id": "7bda6c8e-6482-4b84-93f7-c19cec02fa56",
       "name": "Google Gemini Chat Model1",
       "credentials": {
@@ -441,10 +384,7 @@
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [
-        2768,
-        -32
-      ],
+      "position": [2768, -32],
       "id": "a1f41b05-5df1-4e7c-b491-5fd5dd83f81e",
       "name": "Cleanup Request1"
     },
@@ -454,10 +394,7 @@
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [
-        2976,
-        -32
-      ],
+      "position": [2976, -32],
       "id": "31754998-437f-4794-9c22-a94c0b282179",
       "name": "Markdown to HTML1"
     },
@@ -467,10 +404,7 @@
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [
-        3184,
-        -32
-      ],
+      "position": [3184, -32],
       "id": "05a7b682-cff9-4472-9f46-c7a738b16fd8",
       "name": "Complete HTML Document Structure1"
     },
@@ -480,10 +414,7 @@
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [
-        3392,
-        -32
-      ],
+      "position": [3392, -32],
       "id": "77188050-3dff-4d1c-9d71-80d6b0087a09",
       "name": "CSS for HTML Code1"
     },
@@ -528,10 +459,7 @@
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [
-        3584,
-        -32
-      ],
+      "position": [3584, -32],
       "id": "6dcb0127-93c5-4ff6-baff-d0c38a31bf66",
       "name": "HTML to PDF1"
     },
@@ -539,10 +467,7 @@
       "parameters": {},
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
-      "position": [
-        3984,
-        -336
-      ],
+      "position": [3984, -336],
       "id": "4980cef0-1b9b-4dcf-8a8c-b4d0a844b97a",
       "name": "Merge"
     }
