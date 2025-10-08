@@ -1,7 +1,4 @@
 <h1 align="center">🤖 Learning n8n + AI Agents Masterclass – 30 Days Learning Journey</h1>
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <p align="center">
   <img src="https://img.shields.io/github/stars/ChinmayKaitade/N8N-AI-Agents-Masterclass?style=for-the-badge&color=yellow" />
@@ -104,21 +101,6 @@ Every folder corresponds to a day in the learning roadmap with notes, example wo
 ## Contributors
 
 Maintained & curated by **[Chinmay Kaitade](https://github.com/ChinmayKaitade)** 💡
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tbody>
-    <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/DevNinja08"><img src="https://avatars.githubusercontent.com/u/156286676?v=4?s=100" width="100px;" alt="Dev Ninja"/><br /><sub><b>Dev Ninja</b></sub></a><br /><a href="https://github.com/ChinmayKaitade/N8N-AI-Agents-Masterclass/commits?author=DevNinja08" title="Documentation">📖</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
 Contributions, forks, and pull requests are always **welcome!** 🤝
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
