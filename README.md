@@ -98,10 +98,19 @@ Every folder corresponds to a day in the learning roadmap with notes, example wo
 
 ---
 
-## 👥 **Contributors**
+## Contributors
 
 Maintained & curated by **[Chinmay Kaitade](https://github.com/ChinmayKaitade)** 💡
 Contributions, forks, and pull requests are always **welcome!** 🤝
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ## ⭐ Stargazers
 
