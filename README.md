@@ -100,9 +100,6 @@ Every folder corresponds to a day in the learning roadmap with notes, example wo
 
 ## Contributors
 
-Maintained & curated by **[Chinmay Kaitade](https://github.com/ChinmayKaitade)** 💡
-Contributions, forks, and pull requests are always **welcome!** 🤝
-
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
@@ -112,13 +109,20 @@ Contributions, forks, and pull requests are always **welcome!** 🤝
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
+Maintained & curated by **[Chinmay Kaitade](https://github.com/ChinmayKaitade)** 💡
+Contributions, forks, and pull requests are always **welcome!** 🤝
+
 ## ⭐ Stargazers
 
 🌟 Thank you for starring our project! Your support means a lot and helps us continue improving." Feel free to adjust it to match your tone and style!
 
+[![Stargazers for @ChinmayKaitade/https://github.com/ChinmayKaitade/N8N-AI-Agents-Masterclass](https://reporoster.com/stars/ChinmayKaitade/https://github.com/ChinmayKaitade/N8N-AI-Agents-Masterclass)](https://github.com/ChinmayKaitade/https://github.com/ChinmayKaitade/N8N-AI-Agents-Masterclass/stargazers)
+
 ## 🔧 Forkers
 
 🍴 Thank you for forking our project! Your interest and contributions help us grow and improve. We appreciate your support!
+
+[![Forkers repo roster for @ChinmayKaitade/https://github.com/ChinmayKaitade/N8N-AI-Agents-Masterclass](https://reporoster.com/forks/ChinmayKaitade/https://github.com/ChinmayKaitade/N8N-AI-Agents-Masterclass)](https://github.com/ChinmayKaitade/https://github.com/ChinmayKaitade/N8N-AI-Agents-Masterclass/network/members)
 
 > More Things Adding in Progress...
 
