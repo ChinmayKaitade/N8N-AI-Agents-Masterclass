@@ -116,13 +116,16 @@ Contributions, forks, and pull requests are always **welcome!** 🤝
 
 🌟 Thank you for starring our project! Your support means a lot and helps us continue improving." Feel free to adjust it to match your tone and style!
 
-[![Stargazers for @ChinmayKaitade/https://github.com/ChinmayKaitade/N8N-AI-Agents-Masterclass](https://reporoster.com/stars/ChinmayKaitade/https://github.com/ChinmayKaitade/N8N-AI-Agents-Masterclass)](https://github.com/ChinmayKaitade/https://github.com/ChinmayKaitade/N8N-AI-Agents-Masterclass/stargazers)
+
+[![Stargazers repo roster for @ChinmayKaitade/N8N-AI-Agents-Masterclass](https://reporoster.com/stars/ChinmayKaitade/N8N-AI-Agents-Masterclass)](https://github.com/ChinmayKaitade/N8N-AI-Agents-Masterclass/stargazers)
+
 
 ## 🔧 Forkers
 
 🍴 Thank you for forking our project! Your interest and contributions help us grow and improve. We appreciate your support!
 
-[![Forkers repo roster for @ChinmayKaitade/https://github.com/ChinmayKaitade/N8N-AI-Agents-Masterclass](https://reporoster.com/forks/ChinmayKaitade/https://github.com/ChinmayKaitade/N8N-AI-Agents-Masterclass)](https://github.com/ChinmayKaitade/https://github.com/ChinmayKaitade/N8N-AI-Agents-Masterclass/network/members)
+[![Forkers repo roster for @ChinmayKaitade/N8N-AI-Agents-Masterclass](https://reporoster.com/forks/ChinmayKaitade/N8N-AI-Agents-Masterclass)](https://github.com/ChinmayKaitade/N8N-AI-Agents-Masterclass/network/members)
+
 
 > More Things Adding in Progress...
 
