@@ -4,6 +4,9 @@
   <img src="https://img.shields.io/github/stars/ChinmayKaitade/N8N-AI-Agents-Masterclass?style=for-the-badge&color=yellow" />
   <img src="https://img.shields.io/github/forks/ChinmayKaitade/N8N-AI-Agents-Masterclass?style=for-the-badge&color=blue" />
   <img src="https://img.shields.io/github/issues/ChinmayKaitade/N8N-AI-Agents-Masterclass?style=for-the-badge&color=orange" />
+  <p align="center">
+  <img src="https://img.shields.io/github/stars/ChinmayKaitade/N8N-AI-Agents-Masterclass?style=social" />
+</p>
 </p>
 
 ## 🤖⚡ Building AI Agents Full Masterclass in Hindi 🇮🇳
@@ -116,9 +119,7 @@ Contributions, forks, and pull requests are always **welcome!** 🤝
 
 🌟 Thank you for starring our project! Your support means a lot and helps us continue improving." Feel free to adjust it to match your tone and style!
 
-
 [![Stargazers repo roster for @ChinmayKaitade/N8N-AI-Agents-Masterclass](https://reporoster.com/stars/ChinmayKaitade/N8N-AI-Agents-Masterclass)](https://github.com/ChinmayKaitade/N8N-AI-Agents-Masterclass/stargazers)
-
 
 ## 🔧 Forkers
 
@@ -126,8 +127,11 @@ Contributions, forks, and pull requests are always **welcome!** 🤝
 
 [![Forkers repo roster for @ChinmayKaitade/N8N-AI-Agents-Masterclass](https://reporoster.com/forks/ChinmayKaitade/N8N-AI-Agents-Masterclass)](https://github.com/ChinmayKaitade/N8N-AI-Agents-Masterclass/network/members)
 
-
 > More Things Adding in Progress...
+
+## ❤️ Support
+
+If you like this project, please give it a ⭐ and share it with your friends!
 
 ---
 
