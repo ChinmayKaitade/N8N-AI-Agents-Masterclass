@@ -37,64 +37,6 @@ This repository contains daily learning modules, notes, workflows, and JSON exam
 
 ## 🧠 Overview
 
-This repository documents each day of learning from the **N8N AI Agents Masterclass** — covering automation, AI workflows, agent design, RAG systems, voice agents, MCP integrations, and much more.  
-Every folder corresponds to a day in the learning roadmap with notes, example workflows, and related assets.
-
----
-
-## 🗓️ **30-Day AI Agent Roadmap**
-
-Of course\! I'll add the **Google Drive Notes Link** to the README for better accessibility.
-
-I will place it in two logical spots:
-
-1.  **Under a new sub-heading** just before the detailed 30-Day Roadmap table to make it immediately visible.
-2.  In the **Resources & References** section.
-
-Please replace `[Insert Google Drive Notes Link Here]` with the actual link you want to use.
-
-Here is the updated README content:
-
-\<h1 align="center"\>🤖 Learning n8n + AI Agents Masterclass – 30 Days Learning Journey\</h1\>
-
-\<p align="center"\>
-  \<img src="[https://img.shields.io/github/stars/ChinmayKaitade/N8N-AI-Agents-Masterclass?style=for-the-badge\&color=yellow](https://img.shields.io/github/stars/ChinmayKaitade/N8N-AI-Agents-Masterclass?style=for-the-badge&color=yellow)" /\>
-  \<img src="[https://img.shields.io/github/forks/ChinmayKaitade/N8N-AI-Agents-Masterclass?style=for-the-badge\&color=blue](https://img.shields.io/github/forks/ChinmayKaitade/N8N-AI-Agents-Masterclass?style=for-the-badge&color=blue)" /\>
-  \<img src="[https://img.shields.io/github/issues/ChinmayKaitade/N8N-AI-Agents-Masterclass?style=for-the-badge\&color=orange](https://img.shields.io/github/issues/ChinmayKaitade/N8N-AI-Agents-Masterclass?style=for-the-badge&color=orange)" /\>
-  \<p align="center"\>
-  \<img src="[https://img.shields.io/github/stars/ChinmayKaitade/N8N-AI-Agents-Masterclass?style=social](https://img.shields.io/github/stars/ChinmayKaitade/N8N-AI-Agents-Masterclass?style=social)" /\>
-\</p\>
-\</p\>
-
-## 🤖⚡ Building AI Agents Full Masterclass in Hindi 🇮🇳
-
-A complete 30-Day hands-on roadmap to learn and build automation-powered AI Agents using **n8n**.  
-This repository contains daily learning modules, notes, workflows, and JSON examples from beginner to advanced levels.
-
----
-
-## 📋 **Table of Contents**
-
-1.  [🏠 Overview](README.md)
-2.  [⚙️ Installation & Setup](https://www.google.com/search?q=./01Installation-Setup.md)
-3.  [🧭 Learning Path](https://www.google.com/search?q=./02Learning-Path.md)
-4.  [🔑 Airtable & Credential Setup](https://www.google.com/search?q=./03Airtable-n8n-Credential-Setup.md)
-5.  [🗓️ 30-Day AI Agent Roadmap](https://www.google.com/search?q=%2330-day-ai-agent-roadmap)
-
-- [📝 Masterclass Notes (Google Drive)](https://www.google.com/search?q=%23-masterclass-notes-google-drive)
-     - [⚙️ Day 1–7: Core n8n & AI Agent Basics](https://www.google.com/search?q=%23%EF%B8%8F-day-1%E2%80%937-core-n8n--ai-agent-basics)
-     - [🤖 Day 8–16: Building Real AI Agents](https://www.google.com/search?q=%23-day-8%E2%80%9316-building-real-ai-agents)
-     - [🧠 Day 17–30: Advanced Agents, MCP, RAG & WhatsApp AI Agent](https://www.google.com/search?q=%23-day-17%E2%80%9330-advanced-agents-mcp-rag--whatsapp-ai-agent)
-
-6.  [💼 Workflow Collection](https://www.google.com/search?q=%23workflow-collection)
-7.  [📚 Resources & References](https://www.google.com/search?q=%23resources--references)
-8.  [👥 Contributors](https://www.google.com/search?q=%23contributors)
-9.  [📜 License](https://www.google.com/search?q=%23license)
-
----
-
-## 🧠 Overview
-
 This repository documents each day of learning from the **N8N AI Agents Masterclass** — covering automation, AI workflows, agent design, RAG systems, voice agents, MCP integrations, and much more.  
 Every folder corresponds to a day in the learning roadmap with notes, example workflows, and related assets.
 
